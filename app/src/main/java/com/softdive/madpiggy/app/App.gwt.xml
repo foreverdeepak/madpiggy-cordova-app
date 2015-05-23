@@ -1,0 +1,8 @@
+<module rename-to="madpiggy">
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.vaadin.components.gwt.polymer.PolymerElements"/>
+
+    <entry-point class="com.softdive.madpiggy.app.client.App"/>
+
+    <collapse-all-properties value="true" />
+</module>

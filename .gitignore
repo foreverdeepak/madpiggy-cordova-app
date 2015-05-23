@@ -1,0 +1,11 @@
+.idea
+target
+.settings
+.classpath
+.project
+dist-tmp
+node_modules
+npm-debug.log
+*.iml
+src/main/java/com/vaadin/components/gwt/polymer/client/element
+bower_components

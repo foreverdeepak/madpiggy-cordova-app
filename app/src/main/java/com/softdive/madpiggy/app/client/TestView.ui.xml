@@ -1,0 +1,260 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'>
+
+    <ui:style>
+        view-fragment > .pager-content{
+            margin: 10px;
+            padding: 10px;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 1px 1px silver;
+        }
+
+        view-pager.pink paper-tabs{
+            background-color: #ED8CAD;
+            color:#FFFFFF;
+            border-bottom: 1px solid #ED8CAD;
+        }
+
+        view-pager.pink::shadow paper-tabs{
+            background-color: #ED8CAD;
+            color:#FFFFFF;
+            border-bottom: 1px solid #ED8CAD;
+        }
+
+        view-pager.pink #ink{
+            color: #ff4081;
+        }
+
+        view-pager.pink::shadow /deep/ #ink {
+            color: #ff4081;
+        }
+
+        view-pager.pink #selectionBar {
+            background-color: #ff4081;
+        }
+
+        view-pager.pink /deep/ #selectionBar {
+            background-color: #ff4081;
+        }
+    </ui:style>
+
+    <g:HTMLPanel>
+
+        <p:ViewPager selected="1" ui:field="viewPager">
+            <p:ViewFragment name="One">
+                <div class="pager-content">
+                    Content Two<br/>
+                </div>
+
+            </p:ViewFragment>
+            <p:ViewFragment name="Two">
+                <div class="pager-content">
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                    Content Oone<br/>
+                </div>
+
+            </p:ViewFragment>
+            <p:ViewFragment name="Three">
+                <div class="pager-content">
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                    Content Two<br/>
+                </div>
+
+            </p:ViewFragment>
+
+        </p:ViewPager>
+
+        <paper-toast ui:field="toast" text="Your draft has been discarded."></paper-toast>
+
+
+    </g:HTMLPanel>
+</ui:UiBinder>
