@@ -198,7 +198,3 @@ core-scroll-header-panel > [content] {
 	opacity: 0;
 	will-change: opacity;
 }
-
-iframe[src^="https://apis.google.com"] {
-	display: none;
-}

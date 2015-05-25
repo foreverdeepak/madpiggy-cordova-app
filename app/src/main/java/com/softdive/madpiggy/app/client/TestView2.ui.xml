@@ -74,76 +74,39 @@
 
             </core-toolbar>
             <div content="">
-                <p:ViewPager selected="0" ui:field="viewPager">
-                    <p:ViewFragment name="One">
-                        <div>
-                            Content zero<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Content three<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Content three<br/>
-                        </div>
-                    </p:ViewFragment>
-                    <p:ViewFragment name="Two">
-                        <div>
-                            Content zero<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Two Tab<br/>Two Tab<br/>
-                            Content three<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Two Tab<br/>
-                            Content three<br/>
-                        </div>
-                    </p:ViewFragment>
-                </p:ViewPager>
+                <div>
+                    TOP<br/>
+                    One Tab<br/>
+                    One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>One Tab<br/>
+                    One Tab<br/>
+                    One Tab<br/>
+                    One Tab<br/>
+                    Botttom<br/>
+
+                </div>
             </div>
         </core-scroll-header-panel>
 

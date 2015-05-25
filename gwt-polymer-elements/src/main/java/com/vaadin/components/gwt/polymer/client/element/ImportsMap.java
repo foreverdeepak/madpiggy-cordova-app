@@ -14,15 +14,15 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("core-animation-keyframe", "core-animation/core-animation.html");
         instance.put("core-animation-prop", "core-animation/core-animation.html");
         instance.put("Entity", "core-animation/web-animations.html");
-        instance.put("Entity", "core-component-page/core-component-page.html");
         instance.put("core-collapse", "core-collapse/core-collapse.html");
+        instance.put("Entity", "core-component-page/core-component-page.html");
         instance.put("core-drawer-panel", "core-drawer-panel/core-drawer-panel.html");
         instance.put("core-dropdown-base", "core-dropdown/core-dropdown-base.html");
         instance.put("core-dropdown", "core-dropdown/core-dropdown.html");
         instance.put("core-field", "core-field/core-field.html");
         instance.put("Entity", "core-focusable/core-focusable.html");
-        instance.put("core-header-panel", "core-header-panel/core-header-panel.html");
         instance.put("core-icon", "core-icon/core-icon.html");
+        instance.put("core-header-panel", "core-header-panel/core-header-panel.html");
         instance.put("core-icon-button", "core-icon-button/core-icon-button.html");
         instance.put("Entity", "core-icons/av-icons.html");
         instance.put("Entity", "core-icons/communication-icons.html");
@@ -77,8 +77,8 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("paper-char-counter", "paper-input/paper-char-counter.html");
         instance.put("paper-input-decorator", "paper-input/paper-input-decorator.html");
         instance.put("paper-input", "paper-input/paper-input.html");
-        instance.put("paper-item", "paper-item/paper-item.html");
         instance.put("paper-menu-button", "paper-menu-button/paper-menu-button.html");
+        instance.put("paper-item", "paper-item/paper-item.html");
         instance.put("paper-progress", "paper-progress/paper-progress.html");
         instance.put("paper-radio-button", "paper-radio-button/paper-radio-button.html");
         instance.put("paper-radio-group", "paper-radio-group/paper-radio-group.html");
@@ -95,6 +95,8 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("view-fragment", "polymer-viewpager/view-fragment.html");
         instance.put("view-pager", "polymer-viewpager/view-pager.html");
         instance.put("Entity", "polymer-viewpager/view-transition.html");
+        instance.put("Entity", "swipe-pages/swipe-page.html");
+        instance.put("swipe-pages", "swipe-pages/swipe-pages.html");
         instance.put("Entity", "web-animations-js/web-animations-next-lite.dev.html");
         instance.put("Entity", "web-animations-js/web-animations-next.dev.html");
         instance.put("Entity", "web-animations-js/web-animations.dev.html");
