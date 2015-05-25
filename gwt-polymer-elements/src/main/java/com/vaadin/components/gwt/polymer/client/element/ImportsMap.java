@@ -8,14 +8,14 @@ public class ImportsMap extends HashMap<String, String> {
     
     static { 
         instance.put("core-a11y-keys", "core-a11y-keys/core-a11y-keys.html");
+        instance.put("core-animated-pages", "core-animated-pages/core-animated-pages.html");
         instance.put("core-animation-group", "core-animation/core-animation-group.html");
         instance.put("core-animation", "core-animation/core-animation.html");
         instance.put("core-animation-keyframe", "core-animation/core-animation.html");
         instance.put("core-animation-prop", "core-animation/core-animation.html");
         instance.put("Entity", "core-animation/web-animations.html");
-        instance.put("core-animated-pages", "core-animated-pages/core-animated-pages.html");
-        instance.put("core-collapse", "core-collapse/core-collapse.html");
         instance.put("Entity", "core-component-page/core-component-page.html");
+        instance.put("core-collapse", "core-collapse/core-collapse.html");
         instance.put("core-drawer-panel", "core-drawer-panel/core-drawer-panel.html");
         instance.put("core-dropdown-base", "core-dropdown/core-dropdown-base.html");
         instance.put("core-dropdown", "core-dropdown/core-dropdown.html");
@@ -37,13 +37,14 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("core-iconset", "core-iconset/core-iconset.html");
         instance.put("core-iconset-svg", "core-iconset-svg/core-iconset-svg.html");
         instance.put("Entity", "core-iconset-svg/svg-sample-icons.html");
+        instance.put("core-image", "core-image/core-image.html");
         instance.put("core-input", "core-input/core-input.html");
         instance.put("core-item", "core-item/core-item.html");
         instance.put("core-label", "core-label/core-label.html");
         instance.put("core-media-query", "core-media-query/core-media-query.html");
-        instance.put("core-meta", "core-meta/core-meta.html");
         instance.put("core-menu", "core-menu/core-menu.html");
         instance.put("core-submenu", "core-menu/core-submenu.html");
+        instance.put("core-meta", "core-meta/core-meta.html");
         instance.put("core-key-helper", "core-overlay/core-key-helper.html");
         instance.put("core-overlay-layer", "core-overlay/core-overlay-layer.html");
         instance.put("core-overlay", "core-overlay/core-overlay.html");
@@ -72,11 +73,11 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("paper-dropdown-menu", "paper-dropdown-menu/paper-dropdown-menu.html");
         instance.put("paper-fab", "paper-fab/paper-fab.html");
         instance.put("paper-icon-button", "paper-icon-button/paper-icon-button.html");
-        instance.put("paper-item", "paper-item/paper-item.html");
         instance.put("paper-autogrow-textarea", "paper-input/paper-autogrow-textarea.html");
         instance.put("paper-char-counter", "paper-input/paper-char-counter.html");
         instance.put("paper-input-decorator", "paper-input/paper-input-decorator.html");
         instance.put("paper-input", "paper-input/paper-input.html");
+        instance.put("paper-item", "paper-item/paper-item.html");
         instance.put("paper-menu-button", "paper-menu-button/paper-menu-button.html");
         instance.put("paper-progress", "paper-progress/paper-progress.html");
         instance.put("paper-radio-button", "paper-radio-button/paper-radio-button.html");

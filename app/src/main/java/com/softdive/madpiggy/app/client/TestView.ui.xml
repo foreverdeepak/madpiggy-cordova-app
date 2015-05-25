@@ -3,257 +3,127 @@
              xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'>
 
     <ui:style>
-        view-fragment > .pager-content{
+        .pager-content{
             margin: 10px;
-            padding: 10px;
-            background-color: #FFFFFF;
-            box-shadow: 0 0 1px 1px silver;
-        }
-
-        view-pager.pink paper-tabs{
-            background-color: #ED8CAD;
-            color:#FFFFFF;
-            border-bottom: 1px solid #ED8CAD;
-        }
-
-        view-pager.pink::shadow paper-tabs{
-            background-color: #ED8CAD;
-            color:#FFFFFF;
-            border-bottom: 1px solid #ED8CAD;
-        }
-
-        view-pager.pink #ink{
-            color: #ff4081;
-        }
-
-        view-pager.pink::shadow /deep/ #ink {
-            color: #ff4081;
-        }
-
-        view-pager.pink #selectionBar {
-            background-color: #ff4081;
-        }
-
-        view-pager.pink /deep/ #selectionBar {
-            background-color: #ff4081;
         }
     </ui:style>
 
     <g:HTMLPanel>
+        <core-drawer-panel id="drawerPanel">
+            <core-header-panel mode="scroll" drawer="" narrow="true">
+                <core-toolbar id="navheader" class="tall">
+                    <img class="middle profile" src=""/>
+                    <div class="bottom" layout="" vertical="">
+                        <span>Deepak Chauhan</span>
+                        <span>deepak@softdive.com</span>
+                    </div>
+                </core-toolbar>
+                <core-menu selected="0" excludedLocalNames="div">
+                    <paper-item><core-icon icon="inbox"></core-icon>Inbox</paper-item>
+                    <paper-item><core-icon icon="social:people"></core-icon>Social</paper-item>
+                    <div class="separator">All labels</div>
+                    <paper-item><core-icon icon="star"></core-icon>Starred</paper-item>
+                    <paper-item><core-icon icon="send"></core-icon>Sent</paper-item>
+                    <paper-item><core-icon icon="mail"></core-icon>All Mail</paper-item>
+                    <paper-item><core-icon icon="report"></core-icon>Spam</paper-item>
+                    <paper-item><core-icon icon="delete"></core-icon>Trash</paper-item>
+                </core-menu>
+            </core-header-panel>
 
-        <p:ViewPager selected="1" ui:field="viewPager">
-            <p:ViewFragment name="One">
-                <div class="pager-content">
-                    Content Two<br/>
+            <core-scroll-header-panel id="scrollheader" main="" condenses="true" keepCondensedHeader="" fixed="true">
+            <core-toolbar id="mainheader">
+                <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
+
+                <paper-icon-button id="navicon" icon="menu" core-drawer-toggle=""></paper-icon-button>
+                <div flex=""></div>
+                <span class="bottom indent title">
+                    Inbox
+                </span>
+                <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
+
+                <paper-icon-button icon="archive" class="selected-item"></paper-icon-button>
+                <paper-icon-button icon="delete" class="selected-item"></paper-icon-button>
+                <paper-icon-button icon="mail" class="selected-item"></paper-icon-button>
+
+                <paper-menu-button class="selected-item" layout="" horizontal="">
+                    <paper-icon-button icon="more-vert"></paper-icon-button>
+                    <paper-dropdown class="dropdown" halign="right">
+                        <paper-item>Move to</paper-item>
+                        <paper-item>Change labels</paper-item>
+                        <paper-item>Add star</paper-item>
+                        <paper-item>Mark not important</paper-item>
+                        <paper-item>Mute</paper-item>
+                        <paper-item>Report spam</paper-item>
+                        <paper-item>Report phishing</paper-item>
+                    </paper-dropdown>
+                </paper-menu-button>
+
+                <div id="refresh" class="bottom fit" layout="" horizontal="" center-center="">
+                    <div class="paper-shadow-bottom-z-1">
+                        <paper-spinner id="refreshspinner"></paper-spinner>
+                    </div>
                 </div>
 
-            </p:ViewFragment>
-            <p:ViewFragment name="Two">
-                <div class="pager-content">
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                    Content Oone<br/>
-                </div>
+            </core-toolbar>
+            <div content="">
+                <p:ViewPager selected="1" ui:field="viewPager">
 
-            </p:ViewFragment>
-            <p:ViewFragment name="Three">
-                <div class="pager-content">
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                    Content Two<br/>
-                </div>
+                    <p:ViewFragment name="Two">
+                        <div class="{style.pager-content}">
+                            Content zero<br/>
+                            Content Oone<br/>
+                            Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content Oone<br/>Content Oone<br/>
+                            Content three<br/>
+                            Content Oone<br/>
+                            Content Oone<br/>
+                            Content Oone<br/>
+                            Content three<br/>
 
-            </p:ViewFragment>
+                        </div>
 
-        </p:ViewPager>
+                    </p:ViewFragment>
+                    <p:ViewFragment name="Three">
+                        <div class="pager-content">
+                            Content Two<br/>
+                            Content Two<br/>
+                            Content Two<br/>
 
-        <paper-toast ui:field="toast" text="Your draft has been discarded."></paper-toast>
+                        </div>
+
+                    </p:ViewFragment>
+
+                </p:ViewPager>
+
+            </div>
+        </core-scroll-header-panel>
+
+    </core-drawer-panel>
+
+
+    <paper-fab id="fab" icon="create"></paper-fab>
+    <paper-toast ui:field="toast" text="Your draft has been discarded."></paper-toast>
 
 
     </g:HTMLPanel>

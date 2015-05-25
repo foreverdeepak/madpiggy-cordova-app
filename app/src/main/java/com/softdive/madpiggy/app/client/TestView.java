@@ -35,21 +35,5 @@ public class TestView extends Composite {
     public TestView() {
         initWidget(ourUiBinder.createAndBindUi(this));
 
-        for(int i=0; i<=10; i++) {
-            final ViewFragment viewFragment = new ViewFragment("<div class=\"pager-content\">\n" +
-                    "                    Content " + i + "<br/>" );
-            viewFragment.setName("Page: " + i);
-
-            viewPager.add(viewFragment);
-        }
-
-        viewPager.getPolymerElement().addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
-            @Override
-            protected void handleEvent(CoreSelectEvent event) {
-                toast.text("Tab me");
-                toast.show();
-            }
-        });
-
     }
 }

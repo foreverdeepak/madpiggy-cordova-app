@@ -54,4 +54,7 @@ public class ViewPager extends PolymerWidget {
         setBooleanAttribute("swipeDisabled", true);
     }
 
+
+
+
 }

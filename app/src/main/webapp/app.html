@@ -1,21 +1,25 @@
 <!doctype html>
-
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
 
-    <link type="text/css" rel="stylesheet" href="app.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 
-    <title>Polymer Example</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="#e51c23">
+    <meta name="theme-color" content="#e51c23">
+    <meta name="msapplication-TileColor" content="#e51c23">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>Madpiggy App</title>
 
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-
-    <link rel="import" href="bower_components/polymer-viewpager/view-pager.html">
-    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
-
-    <script type="text/javascript" src="madpiggy/madpiggy.nocache.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="elements.html">
+    <link rel="stylesheet" href="app.css" shim-shadowdom>
   </head>
-
-  <body>
+  <body unresolved fullbleed>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="madpiggy/madpiggy.nocache.js"></script>
   </body>
+
 </html>

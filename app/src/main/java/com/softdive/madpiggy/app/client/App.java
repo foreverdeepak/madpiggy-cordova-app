@@ -11,7 +11,7 @@ public class App implements EntryPoint {
     @Override
     public void onModuleLoad() {
 
-        TestView testView = new TestView();
+        TestView2 testView = new TestView2();
         RootPanel.get().add(testView);
 
     }
