@@ -15,4 +15,6 @@ public interface Element extends Node {
     void setAttribute(String name, String value);
     String getAttribute(String name);
     void removeAttribute(String name);
+
+    void appendChild(Element element);
 }

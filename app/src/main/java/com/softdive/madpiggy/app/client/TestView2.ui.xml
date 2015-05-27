@@ -1,36 +1,24 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
-             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'>
+             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'
+             xmlns:m='urn:import:com.softdive.madpiggy.app.client'
+             xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+
+    <ui:style>
+        .abc {
+            padding-top: 128px;
+            position: relative;
+        }
+
+    </ui:style>
+
     <g:HTMLPanel>
-
         <material-search id="search" narrow="true"/>
-
         <core-drawer-panel id="drawerPanel" narrow="true">
-
-            <core-header-panel mode="scroll" drawer="">
-                <core-toolbar id="navheader" class="tall">
-                    <img class="middle profile" src=""/>
-                    <div class="bottom" layout="" vertical="">
-                        <span>Deepak</span>
-                        <span>forverdeepak@gmail.com</span>
-                    </div>
-                </core-toolbar>
-                <core-menu selected="0" excludedLocalNames="div">
-                    <paper-item><core-icon icon="inbox"></core-icon>Inbox</paper-item>
-                    <paper-item><core-icon icon="social:people"></core-icon>Social</paper-item>
-                    <div class="separator">All labels</div>
-                    <paper-item><core-icon icon="star"></core-icon>Starred</paper-item>
-                    <paper-item><core-icon icon="send"></core-icon>Sent</paper-item>
-                    <paper-item><core-icon icon="mail"></core-icon>All Mail</paper-item>
-                    <paper-item><core-icon icon="report"></core-icon>Spam</paper-item>
-                    <paper-item><core-icon icon="delete"></core-icon>Trash</paper-item>
-                </core-menu>
-            </core-header-panel>
-
+            <m:DrawerHeaderPanel/>
             <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
             <core-toolbar id="mainheader" class="medium-tall">
                 <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
-
                 <paper-icon-button id="navicon" icon="menu" core-drawer-toggle=""></paper-icon-button>
                 <div flex=""></div>
                 <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
@@ -56,68 +44,34 @@
 
                 <div class="bottom fit" horizontal="" layout="">
 
-                    <paper-tabs selected="0" flex="" style="max-width: 600px;" scrollable="true" hideScrollButton="true">
+                    <paper-tabs selected="0" flex="" style="max-width: 600px;" scrollable="true" hideScrollButton="true" ui:field="paperTabsElement">
 
                         <paper-tab>ITEM ONE</paper-tab>
                         <paper-tab>ITEM TWO</paper-tab>
                         <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-                        <paper-tab>ITEM THREE</paper-tab>
-
+                        <paper-tab>ITEM FOUR</paper-tab>
+                        <paper-tab>ITEM FIVE</paper-tab>
+                        <paper-tab>ITEM SIX</paper-tab>
+                        <paper-tab>ITEM SEVEN</paper-tab>
+                        <paper-tab>ITEM EIGHT</paper-tab>
+                        <paper-tab>ITEM NINE</paper-tab>
                     </paper-tabs>
-
                 </div>
 
             </core-toolbar>
             <div content="">
-                <div>
-                    TOP<br/>
-                    One Tab<br/>
-                    One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>One Tab<br/>
-                    One Tab<br/>
-                    One Tab<br/>
-                    One Tab<br/>
-                    Botttom<br/>
-
-                </div>
+                <mgwt:panel.flex.RootFlexPanel ui:field="flexPanel" addStyleNames="{style.abc}"/>
             </div>
         </core-scroll-header-panel>
 
     </core-drawer-panel>
 
-    <paper-toast id="toast" duration="10000" swipeDisabled="false"
+    <paper-toast name="toast" duration="10000" swipeDisabled="false"
                  text="Tada">
         <div>Undo</div>
     </paper-toast>
 
-    <paper-fab id="fab" icon="create"></paper-fab>
+    <paper-fab name="fab" icon="create"></paper-fab>
 
     </g:HTMLPanel>
 </ui:UiBinder>

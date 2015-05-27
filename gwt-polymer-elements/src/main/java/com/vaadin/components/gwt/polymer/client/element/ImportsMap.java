@@ -21,8 +21,8 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("core-dropdown", "core-dropdown/core-dropdown.html");
         instance.put("core-field", "core-field/core-field.html");
         instance.put("Entity", "core-focusable/core-focusable.html");
-        instance.put("core-icon", "core-icon/core-icon.html");
         instance.put("core-header-panel", "core-header-panel/core-header-panel.html");
+        instance.put("core-icon", "core-icon/core-icon.html");
         instance.put("core-icon-button", "core-icon-button/core-icon-button.html");
         instance.put("Entity", "core-icons/av-icons.html");
         instance.put("Entity", "core-icons/communication-icons.html");
@@ -77,8 +77,8 @@ public class ImportsMap extends HashMap<String, String> {
         instance.put("paper-char-counter", "paper-input/paper-char-counter.html");
         instance.put("paper-input-decorator", "paper-input/paper-input-decorator.html");
         instance.put("paper-input", "paper-input/paper-input.html");
-        instance.put("paper-menu-button", "paper-menu-button/paper-menu-button.html");
         instance.put("paper-item", "paper-item/paper-item.html");
+        instance.put("paper-menu-button", "paper-menu-button/paper-menu-button.html");
         instance.put("paper-progress", "paper-progress/paper-progress.html");
         instance.put("paper-radio-button", "paper-radio-button/paper-radio-button.html");
         instance.put("paper-radio-group", "paper-radio-group/paper-radio-group.html");

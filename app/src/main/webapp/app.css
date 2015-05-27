@@ -6,11 +6,11 @@ body {
 	font-weight: 300;
 }
 
-#drawerPanel:not([narrow]) core-scroll-header-panel [content] {
+core-drawer-panel:not([narrow]) core-scroll-header-panel [content] {
 	padding: 30px 0;
 }
 
-#drawerPanel[narrow][selected="drawer"] .fade-on-drawer-open {
+core-drawer-panel[narrow][selected="drawer"] .fade-on-drawer-open {
 	opacity: 0;
 }
 
@@ -18,27 +18,27 @@ body {
 	transition: opacity 300ms ease-in-out;
 }
 
-#drawerPanel core-header-panel {
+core-drawer-panel core-header-panel {
 	background: #fafafa;
 	box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1);
 	color: #757575;
 }
 
-#drawerPanel core-header-panel .separator {
+core-drawer-panel core-header-panel .separator {
 	padding: 16px;
 	font-size: 14px;
 	border-top: 1px solid #e0e0e0;
 }
 
-#drawerPanel core-header-panel core-menu {
+core-drawer-panel core-header-panel core-menu {
 	margin: 16px 0 0 0;
 }
 
-#drawerPanel core-scroll-header-panel::shadow #headerBg {
+core-drawer-panel core-scroll-header-panel::shadow #headerBg {
 	background-color: #e51c23;
 }
 
-#drawerPanel core-scroll-header-panel::shadow #condensedHeaderBg {
+core-drawer-panel core-scroll-header-panel::shadow #condensedHeaderBg {
 	background-color: #e51c23;
 	opacity: 1 !important; /* Prevents the background color from dissolving. */
 }
@@ -142,7 +142,7 @@ core-scroll-header-panel > [content] {
 	height: 100%;
 }
 
-#fab {
+paper-fab[name="fab"] {
 	position: fixed;
 	bottom: 16px;
 	right: 16px;
@@ -152,7 +152,7 @@ core-scroll-header-panel > [content] {
 	transition: transform 0.2s ease-in-out;
 }
 
-#fab.moveup {
+paper-fab[name="fab"].moveup {
 	transform: translate3d(0, -48px, 0);
 }
 

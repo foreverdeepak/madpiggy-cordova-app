@@ -67,7 +67,13 @@ public class CoreHeaderPanel extends PolymerWidget {
         getPolymerElement().scroller(value);
     }
 
+    public void setDrawer(String drawer) {
+        getPolymerElement().setAttribute("drawer", drawer);
+    }
 
+    public String getDrawer() {
+        return getPolymerElement().getAttribute("drawer");
+    }
 
     public HandlerRegistration addScrollHandler(ScrollEventHandler handler) {
         return addHandler(handler, ScrollEvent.TYPE);

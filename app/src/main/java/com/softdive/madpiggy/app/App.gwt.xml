@@ -1,6 +1,7 @@
 <module rename-to="madpiggy">
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.vaadin.components.gwt.polymer.PolymerElements"/>
+    <inherits name="com.googlecode.mgwt.ui.UI"/>
 
     <entry-point class="com.softdive.madpiggy.app.client.App"/>
 
