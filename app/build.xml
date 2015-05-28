@@ -1,14 +1,15 @@
 <project name="madpiggy" basedir="." default="copy-cordova-artifacts">
 
 	<target name="copy-cordova-artifacts">
-		<delete dir="${basedir}/app/cordova/www">
+		<delete dir="${basedir}/cordova/www">
 			<include name="**/*"/>
 			<exclude name=".gitignore"/>
 		</delete>
-		<copy todir="${basedir}/app/cordova/www">
-			<fileset dir="${basedir}/app/target/app-1.0-SNAPSHOT">
+		<copy todir="${basedir}/cordova/www">
+			<fileset dir="${basedir}/target/madpiggy-cordova-app">
 				<include name="**/*"/>
 				<exclude name="WEB-INF/**/*"/>
+				<exclude name="META-INF/**/*"/>
 				<exclude name="cordova.js"/>
 			</fileset>
 		</copy>

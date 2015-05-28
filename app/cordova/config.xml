@@ -38,7 +38,7 @@
 	
     <preference name="SplashScreenDelay" value="1000000" />
 	
-	<content src="build.html" />
+	<content src="app.html" />
 	<access origin="*" />
 
 	<preference name="DisallowOverscroll" value="true" />

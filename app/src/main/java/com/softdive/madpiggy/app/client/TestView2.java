@@ -9,8 +9,8 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
-import com.googlecode.mgwt.ui.client.widget.carousel.Carousel;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
+import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.vaadin.components.gwt.polymer.client.element.PaperTabsElement;
 import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
 
@@ -30,13 +30,15 @@ public class TestView2 extends Composite {
     public TestView2() {
         initWidget(ourUiBinder.createAndBindUi(this));
 
-        final Carousel carousel = new Carousel();
+        final ViewPager carousel = new ViewPager();
         carousel.setShowCarouselIndicator(false);
 
         for (int i = 1; i <=9; i++) {
             ScrollPanel scrollPanel = new ScrollPanel();
             scrollPanel.setHeight(Window.getClientHeight() -128 + "px");
+            scrollPanel.getElement().getStyle().setWidth(100, Style.Unit.PCT);
             FlowPanel flowPanel3 = new FlowPanel();
+            flowPanel3.getElement().getStyle().setWidth(100, Style.Unit.PCT);
             flowPanel3.add(new HTML("top"));
 
             for (int j = 0; j < 200; j++) {

@@ -1,0 +1,11 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.googlecode.mgwt.ui.client.widget">
+	<ui:with field="appearance" type="com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAppearance"></ui:with>
+	<m:panel.flex.FlexPanel ui:field="main" styleName="{appearance.cssViewPager.carousel}">
+	  <m:panel.scroll.ScrollPanel ui:field="scrollPanel" addStyleNames="{appearance.cssViewPager.carouselScroller}">
+	    <g:FlowPanel ui:field="container" styleName="{appearance.cssViewPager.carouselContainer}" />
+	  </m:panel.scroll.ScrollPanel>
+	</m:panel.flex.FlexPanel>
+</ui:UiBinder> 
