@@ -38,9 +38,29 @@
 	
     <preference name="SplashScreenDelay" value="1000000" />
 	
-	<content src="app.html" />
+	<content src="build.html" />
 	<access origin="*" />
 
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="UIWebViewBounce" value="false" />
+	<feature name="org.apache.cordova.facebook.Connect">
+		<param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+	</feature>
+
+	<feature name="SocialSharing">
+		<param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+	</feature>
+	
+	<feature name="FacebookPlugin">
+		<param name="android-package" value="com.phonegap.plugins.facebookconnect" />
+		<param name="APP_ID" value="275966615916506" />
+		<param name="APP_NAME" value="Madpiggy" />
+	</feature>
+
+	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
+		<param name="APP_ID" value="275966615916506" />
+		<param name="APP_NAME" value="Madpiggy" />
+	</gap:plugin>
+	<gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.0" />
+
 </widget>
