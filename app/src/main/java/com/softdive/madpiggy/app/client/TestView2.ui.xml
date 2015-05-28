@@ -13,7 +13,6 @@
     </ui:style>
 
     <g:HTMLPanel>
-        <material-search id="search" narrow="true"/>
         <core-drawer-panel id="drawerPanel" narrow="true">
             <m:DrawerHeaderPanel/>
             <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">

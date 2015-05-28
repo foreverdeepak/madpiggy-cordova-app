@@ -10,7 +10,7 @@
             </div>
         </core-toolbar>
         <core-menu selected="0" excludedLocalNames="div">
-            <paper-item><core-icon icon="inbox"></core-icon>Inbox</paper-item>
+            <paper-item ui:field="inbox"><core-icon icon="inbox"></core-icon>Inbox</paper-item>
             <paper-item><core-icon icon="social:people"></core-icon>Social</paper-item>
             <div class="separator">All labels</div>
             <paper-item><core-icon icon="star"></core-icon>Starred</paper-item>

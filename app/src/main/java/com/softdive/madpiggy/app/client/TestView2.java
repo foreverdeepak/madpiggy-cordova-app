@@ -31,7 +31,7 @@ public class TestView2 extends Composite {
         initWidget(ourUiBinder.createAndBindUi(this));
 
         final Carousel carousel = new Carousel();
-
+        carousel.setShowCarouselIndicator(false);
 
         for (int i = 1; i <=9; i++) {
             ScrollPanel scrollPanel = new ScrollPanel();
@@ -55,7 +55,7 @@ public class TestView2 extends Composite {
             public void run() {
                 carousel.getElement().getStyle().setVisibility(Style.Visibility.VISIBLE);
             }
-        }.schedule(200);
+        }.schedule(350);
 
 
         paperTabsElement.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
