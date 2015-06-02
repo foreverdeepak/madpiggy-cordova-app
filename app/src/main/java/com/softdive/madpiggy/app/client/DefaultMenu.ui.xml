@@ -1,0 +1,11 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'>
+    <p:PaperMenuButton layout="" horizontal="">
+        <paper-icon-button icon="more-vert"></paper-icon-button>
+        <paper-dropdown class="dropdown" halign="right">
+            <paper-item ui:field="inviteFriends">Invite Friends</paper-item>
+            <paper-item ui:field="refresh">Refresh</paper-item>
+        </paper-dropdown>
+    </p:PaperMenuButton>
+</ui:UiBinder>

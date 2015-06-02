@@ -1,44 +1,28 @@
 package com.softdive.madpiggy.app.client;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.googlecode.gwtphonegap.client.PhoneGap;
-import com.googlecode.gwtphonegap.client.PhoneGapAvailableEvent;
-import com.googlecode.gwtphonegap.client.PhoneGapAvailableHandler;
-import com.googlecode.gwtphonegap.client.PhoneGapTimeoutEvent;
-import com.googlecode.gwtphonegap.client.PhoneGapTimeoutHandler;
-import com.googlecode.mgwt.ui.client.MGWT;
-import com.googlecode.mgwt.ui.client.MGWTSettings;
 
-public class App implements EntryPoint {
+/**
+ * Created by deepakc on 02/06/15.
+ */
+public final class App {
 
-	@Override
-	public void onModuleLoad() {
+    private static App app;
+    private ClientFactory clientFactory;
 
-		final PhoneGap phoneGap = GWT.create(PhoneGap.class);
+    public App(PhoneGap phoneGap) {
+        clientFactory = new ClientFactoryImpl(phoneGap);
+    }
 
-		phoneGap.addHandler(new PhoneGapAvailableHandler() {
+    public static App get() {
+        return app;
+    }
 
-			@Override
-			public void onPhoneGapAvailable(PhoneGapAvailableEvent event) {
-				onModuleLoadInternal();
-			}
-		});
+    public ClientFactory getClientFactory() {
+        return clientFactory;
+    }
 
-		phoneGap.addHandler(new PhoneGapTimeoutHandler() {
-
-			@Override
-			public void onPhoneGapTimeout(PhoneGapTimeoutEvent event) {
-			}
-		});
-
-		phoneGap.initializePhoneGap();
-	}
-
-	private void onModuleLoadInternal() {
-		MGWT.applySettings(new MGWTSettings());
-		TestView2 testView = new TestView2();
-		RootPanel.get().add(testView);
-	}
+    public static void init(PhoneGap phoneGap) {
+        app = new App(phoneGap);
+    }
 }

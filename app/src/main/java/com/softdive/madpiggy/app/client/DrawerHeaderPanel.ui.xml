@@ -5,19 +5,19 @@
         <core-toolbar id="navheader" class="tall">
             <img class="middle profile" src=""/>
             <div class="bottom" layout="" vertical="">
-                <span>Deepak</span>
-                <span>forverdeepak@gmail.com</span>
+                <span ui:field="username">Your Name</span>
+                <span ui:field="email">yourmail@domain.com</span>
             </div>
         </core-toolbar>
-        <core-menu selected="0" excludedLocalNames="div">
-            <paper-item ui:field="inbox"><core-icon icon="inbox"></core-icon>Inbox</paper-item>
-            <paper-item><core-icon icon="social:people"></core-icon>Social</paper-item>
-            <div class="separator">All labels</div>
-            <paper-item><core-icon icon="star"></core-icon>Starred</paper-item>
-            <paper-item><core-icon icon="send"></core-icon>Sent</paper-item>
-            <paper-item><core-icon icon="mail"></core-icon>All Mail</paper-item>
-            <paper-item><core-icon icon="report"></core-icon>Spam</paper-item>
-            <paper-item><core-icon icon="delete"></core-icon>Trash</paper-item>
+        <core-menu selected="0" excludedLocalNames="div" ui:field="menu">
+            <paper-item ui:field="nearby"><core-icon icon="inbox"></core-icon>Nearby</paper-item>
+            <paper-item ui:field="map"><core-icon icon="social:people"></core-icon>Map</paper-item>
+            <div class="separator"></div>
+            <paper-item ui:field="notifications"><core-icon icon="star"></core-icon>Notifications</paper-item>
+            <paper-item ui:field="checkin"><core-icon icon="send"></core-icon>Checkin</paper-item>
+            <div class="separator"></div>
+            <paper-item ui:field="about"><core-icon icon="mail"></core-icon>About</paper-item>
+            <paper-item ui:field="logout"><core-icon icon="report"></core-icon>Logout</paper-item>
         </core-menu>
     </p:CoreHeaderPanel>
 </ui:UiBinder>

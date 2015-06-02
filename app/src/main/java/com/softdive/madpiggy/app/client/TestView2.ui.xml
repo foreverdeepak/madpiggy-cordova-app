@@ -14,7 +14,7 @@
 
     <g:HTMLPanel>
         <core-drawer-panel id="drawerPanel" narrow="true">
-            <m:DrawerHeaderPanel/>
+            <m:DrawerHeaderPanel />
             <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
             <core-toolbar id="mainheader" class="medium-tall">
                 <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
@@ -22,18 +22,7 @@
                 <div flex=""></div>
                 <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
 
-                <paper-menu-button layout="" horizontal="">
-                    <paper-icon-button icon="more-vert"></paper-icon-button>
-                    <paper-dropdown class="dropdown" halign="right">
-                        <paper-item>Move to</paper-item>
-                        <paper-item>Change labels</paper-item>
-                        <paper-item>Add star</paper-item>
-                        <paper-item>Mark not important</paper-item>
-                        <paper-item>Mute</paper-item>
-                        <paper-item>Report spam</paper-item>
-                        <paper-item>Report phishing</paper-item>
-                    </paper-dropdown>
-                </paper-menu-button>
+                <m:DefaultMenu/>
 
                 <div id="refresh" class="bottom fit" layout="" horizontal="" center-center="">
                     <div class="paper-shadow-bottom-z-1">

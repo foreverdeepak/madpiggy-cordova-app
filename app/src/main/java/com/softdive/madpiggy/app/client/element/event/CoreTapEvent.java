@@ -1,4 +1,4 @@
-package com.vaadin.components.gwt.polymer.client.element.event;
+package com.softdive.madpiggy.app.client.element.event;
 
 import com.google.gwt.core.client.js.JsProperty;
 import com.google.gwt.core.client.js.JsType;

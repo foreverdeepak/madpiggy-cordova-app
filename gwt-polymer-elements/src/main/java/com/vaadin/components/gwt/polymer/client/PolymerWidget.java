@@ -117,4 +117,12 @@ public class PolymerWidget extends HTMLPanel {
     public HandlerRegistration addClickHandler(ClickHandler handler) {
         return addDomHandler(handler, ClickEvent.getType());
     }
+
+    public void setDrawer(String drawer) {
+        getElement().setAttribute("drawer", drawer);
+    }
+
+    public String getDrawer() {
+        return getElement().getAttribute("drawer");
+    }
 }
