@@ -3,6 +3,7 @@
     <inherits name="com.vaadin.components.gwt.polymer.PolymerElements"/>
     <inherits name="com.softdive.madpiggy.app.client.widget.viewpager.ViewPager"/>
     <inherits name="com.googlecode.mgwt.ui.UI"/>
+    <inherits name='com.googlecode.gwtphonegap.PhoneGap' />
 
     <entry-point class="com.softdive.madpiggy.app.client.App"/>
 
