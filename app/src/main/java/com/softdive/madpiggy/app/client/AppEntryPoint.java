@@ -3,6 +3,7 @@ package com.softdive.madpiggy.app.client;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.googlecode.gwtphonegap.client.PhoneGap;
@@ -14,6 +15,7 @@ import com.googlecode.mgwt.mvp.client.history.MGWTPlaceHistoryHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.MGWTSettings;
 import com.softdive.madpiggy.app.client.nearby.NearbyPlace;
+import com.softdive.madpiggy.app.client.signin.LoginPlace;
 
 public class AppEntryPoint implements EntryPoint {
 
@@ -51,9 +53,14 @@ public class AppEntryPoint implements EntryPoint {
 		ActivityManager activityManager = new ActivityManager(appActivityMapper, clientFactory.getEventBus());
 		activityManager.setDisplay(display);
 
+		Place place = new NearbyPlace(null);
+		if(clientFactory.getUser() == null) {
+			place = new LoginPlace();
+		}
+
 		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 		MGWTPlaceHistoryHandler historyHandler = new MGWTPlaceHistoryHandler(historyMapper,clientFactory.getHistoryObserver());
-		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new NearbyPlace(null));
+		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), place);
 
 		RootPanel.get().add(display);
 		historyHandler.handleCurrentHistory();

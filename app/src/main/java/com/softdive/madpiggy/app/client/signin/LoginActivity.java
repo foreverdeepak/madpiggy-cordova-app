@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.nearby;
+package com.softdive.madpiggy.app.client.signin;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -6,19 +6,19 @@ import com.softdive.madpiggy.app.client.BaseActivity;
 import com.softdive.madpiggy.app.client.ClientFactory;
 
 /**
- * Created by deepakc on 02/06/15.
+ * Created by deepakc on 03/06/15.
  */
-public class NearbyActivity extends BaseActivity implements NearbyView.Presenter{
+public class LoginActivity extends BaseActivity implements LoginView.Presenter {
 
-    public NearbyActivity(ClientFactory clientFactory) {
+    public LoginActivity(ClientFactory clientFactory) {
         super(clientFactory);
     }
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         super.start(panel, eventBus);
-        NearbyView nearbyView = new NearbyViewImpl();
-        nearbyView.setPresenter(this);
-        panel.setWidget(nearbyView);
+        LoginView loginView = new LoginViewImpl();
+        loginView.setPresenter(this);
+        panel.setWidget(loginView);
     }
 }
