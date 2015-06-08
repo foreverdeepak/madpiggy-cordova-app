@@ -5,7 +5,7 @@
     <inherits name="com.googlecode.mgwt.ui.UI"/>
     <inherits name='com.googlecode.gwtphonegap.PhoneGap' />
     <inherits name="com.googlecode.mgwt.mvp.MVP"/>
-    <set-property name="mgwt.mainresource.inject" value="no" />
+    <!-- <set-property name="mgwt.mainresource.inject" value="no" /> -->
 
 
     <entry-point class="com.softdive.madpiggy.app.client.AppEntryPoint"/>

@@ -13,7 +13,7 @@
     </ui:style>
 
     <g:HTMLPanel>
-        <core-drawer-panel id="drawerPanel" narrow="true">
+        <core-drawer-panel id="drawerPanel" narrow="true" responsiveWidth="6400px">
             <m:DrawerHeaderPanel ui:field="drawerHeaderPanel" />
             <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
                 <core-toolbar id="mainheader" class="medium-tall">
@@ -32,7 +32,7 @@
 
                     <div class="bottom fit" horizontal="" layout="">
 
-                        <paper-tabs selected="0" flex="" style="max-width: 600px;" scrollable="true" hideScrollButton="true" ui:field="paperTabsElement">
+                        <paper-tabs selected="0" flex="" scrollable="true" hideScrollButton="true" ui:field="paperTabsElement">
 
                             <paper-tab>ITEM ONE</paper-tab>
                             <paper-tab>ITEM TWO</paper-tab>
