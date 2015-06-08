@@ -55,7 +55,7 @@ public class AppEntryPoint implements EntryPoint {
 
 		Place place = new NearbyPlace(null);
 		if(clientFactory.getUser() == null) {
-			place = new LoginPlace();
+			//place = new LoginPlace();
 		}
 
 		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
