@@ -1,0 +1,9 @@
+<module>
+  <replace-with class="com.softdive.madpiggy.app.client.storage.DefaultHTMLStorage">
+    <when-type-is class="com.softdive.madpiggy.app.client.storage.HTMLStorage" />
+  </replace-with>
+  
+  <replace-with class="com.softdive.madpiggy.app.client.storage.MockSessionStorage">
+    <when-type-is class="com.softdive.madpiggy.app.client.storage.SessionStorage" />
+  </replace-with>
+</module>

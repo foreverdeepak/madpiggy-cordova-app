@@ -1,0 +1,53 @@
+@if mgwt.css pretty {
+  @external mgwt-List, mgwt-List-entry-selected;
+  @external mgwt-List-entry-first, mgwt-List-entry-last, mgwt-List-Header;
+  @external mgwt-List-Head-Element, mgwt-List-entry-canbeSelected;
+}
+
+.mgwt-List {
+  list-style: none;
+  border-top: 1px solid #9daca9;
+  background-color: white;
+  color: #454545;
+}
+
+.mgwt-List-entry {
+  list-style-type: none;
+  display: block;
+  width: auto;
+  padding: 12px;
+}
+
+.mgwt-List-entry-last {
+	border-bottom: 0px;
+	border-bottom-style: hidden;
+}
+
+.mgwt-List-entry {
+  border-bottom: 1px solid #9daca9;
+}
+.mgwt-List-entry-first {
+  border-top: 0px;
+  border-top-style: hidden;
+}
+
+.mgwt-List-entry-canbeSelected {
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.mgwt-List-entry-canbeSelected.mgwt-List-entry-selected {
+  font-weight: bold;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-color: #288ede;
+}
+
+.mgwt-List-Header {
+
+}
+
+.mgwt-List-Head-Element, .mgwt-List > .mgwt-List-Head-Element {
+}
+

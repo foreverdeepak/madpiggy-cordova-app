@@ -1,0 +1,11 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:f="urn:import:com.googlecode.mgwt.ui.client.widget.panel.flex">
+
+	<f:FlexPanel orientation="HORIZONTAL" justification="CENTER" height="100%" width="100%" addStyleNames="widget-parent">
+		<f:FlexPanel orientation="VERTICAL" justification="CENTER" height="100%">
+			<g:HTMLPanel height="100px">
+				<paper-spinner active=""/>
+			</g:HTMLPanel>
+		</f:FlexPanel>
+	</f:FlexPanel>
+</ui:UiBinder> 

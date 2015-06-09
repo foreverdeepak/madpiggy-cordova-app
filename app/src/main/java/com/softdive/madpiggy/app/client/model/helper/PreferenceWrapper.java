@@ -1,8 +1,8 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.Preference;
-
 import java.util.Collection;
+
+import com.softdive.madpiggy.app.client.model.Preference;
 
 public class PreferenceWrapper {
 

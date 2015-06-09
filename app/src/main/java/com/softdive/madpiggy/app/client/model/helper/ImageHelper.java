@@ -1,10 +1,14 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.Image;
-import com.softdive.madpiggy.app.client.model.Image.ImageType;
-import com.softdive.madpiggy.app.client.model.Imageable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.util.*;
+import com.softdive.madpiggy.app.client.model.Image;
+import com.softdive.madpiggy.app.client.model.Imageable;
+import com.softdive.madpiggy.app.client.model.Image.ImageType;
 
 public class ImageHelper {
 

@@ -1,6 +1,7 @@
 package com.softdive.madpiggy.app.client;
 
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
 import com.softdive.madpiggy.app.client.model.User;
@@ -19,4 +20,6 @@ public interface ClientFactory {
     PlaceController getPlaceController();
 
     User getUser();
+    
+    Widget getSpinner();
 }

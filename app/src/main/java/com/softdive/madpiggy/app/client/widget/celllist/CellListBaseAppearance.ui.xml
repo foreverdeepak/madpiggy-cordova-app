@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+	<ui:with field="apperance"
+		type="com.softdive.madpiggy.app.client.widget.celllist.CellListAppearance" />
+
+	<ui:style>
+	.margin {
+		margin: 10px;
+	}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel ui:field="container" addStyleNames="{apperance.css.listCss}"/>
+		<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL" justification="CENTER">
+			<g:HTMLPanel ui:field="footer" styleName="{style.margin}">
+					<paper-spinner active=""/>
+			</g:HTMLPanel>
+		</mgwt:panel.flex.FlexPanel>
+	</g:HTMLPanel>
+
+</ui:UiBinder>

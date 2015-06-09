@@ -1,0 +1,5 @@
+<module>
+  <replace-with class="com.softdive.madpiggy.app.client.widget.celllist.DefaultCellListAppearance">
+    <when-type-is class="com.softdive.madpiggy.app.client.widget.celllist.CellListAppearance" />
+  </replace-with>
+</module>

@@ -1,11 +1,11 @@
 package com.softdive.madpiggy.app.client.model;
 
-import com.softdive.madpiggy.app.client.model.UserProfile.ProfileType;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+
+import com.softdive.madpiggy.app.client.model.UserProfile.ProfileType;
 
 public class User extends Persistable {
 

@@ -7,6 +7,24 @@ public class Mall extends Imageable {
 	private double latitude;
 	private double longitude;
 	private int totalOutlets;
+	private Address address;
+	private Double distance;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Double distance) {
+		this.distance = distance;
+	}
 
 	public long getId() {
 		return id;

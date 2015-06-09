@@ -1,10 +1,10 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.Advertisement.AdType;
-import com.softdive.madpiggy.app.client.model.UserActivity.Activity;
-
 import java.util.Collection;
 import java.util.Date;
+
+import com.softdive.madpiggy.app.client.model.Advertisement.AdType;
+import com.softdive.madpiggy.app.client.model.UserActivity.Activity;
 
 public class AdCriteria {
 

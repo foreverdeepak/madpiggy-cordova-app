@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:mlist="urn:import:com.softdive.madpiggy.app.client.widget.celllist">
+	<ui:style>
+	.parent {
+		margin-top : 10px;
+	}	
+	.display-none {
+		display: none;
+	}
+	</ui:style>
+	<g:HTMLPanel styleName="{style.parent}">
+		<mlist:CellList ui:field="deals" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

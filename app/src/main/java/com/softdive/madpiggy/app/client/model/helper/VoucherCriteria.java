@@ -1,8 +1,8 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.Voucher.Status;
-
 import java.util.Collection;
+
+import com.softdive.madpiggy.app.client.model.Voucher.Status;
 
 public class VoucherCriteria {
 

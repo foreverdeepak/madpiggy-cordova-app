@@ -1,10 +1,10 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.AdDto;
-import com.softdive.madpiggy.app.client.model.Outlet;
-
 import java.util.ArrayList;
 import java.util.Collection;
+
+import com.softdive.madpiggy.app.client.model.AdDto;
+import com.softdive.madpiggy.app.client.model.Outlet;
 
 public class DealOutletWrapper {
 	private AdDto advertisement;

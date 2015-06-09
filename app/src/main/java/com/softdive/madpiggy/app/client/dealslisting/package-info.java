@@ -1,0 +1,1 @@
+package com.softdive.madpiggy.app.client.dealslisting;

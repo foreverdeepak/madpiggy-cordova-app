@@ -1,9 +1,9 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
+import java.util.Collection;
+
 import com.softdive.madpiggy.app.client.model.Source;
 import com.softdive.madpiggy.app.client.model.UserActivity.Activity;
-
-import java.util.Collection;
 
 public class UserActivityCriteria {
 

@@ -1,9 +1,9 @@
 package com.softdive.madpiggy.app.client.model.helper;
 
-import com.softdive.madpiggy.app.client.model.User;
-
 import java.util.ArrayList;
 import java.util.Collection;
+
+import com.softdive.madpiggy.app.client.model.User;
 
 public class CampaignUserHelper {
 	Collection<User> fbShareUser;

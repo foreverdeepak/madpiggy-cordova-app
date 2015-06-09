@@ -1,0 +1,11 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder">
+	<ui:with type="java.lang.String" field="title"/>
+	<ui:with type="java.lang.String" field="descr"/>
+	<ui:style>
+	</ui:style>
+
+	<div>
+		<ui:text from='{title}'></ui:text>, <ui:text from='{descr}'></ui:text>
+	</div>
+</ui:UiBinder> 

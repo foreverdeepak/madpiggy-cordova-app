@@ -1,9 +1,10 @@
 package com.softdive.madpiggy.app.client.model;
 
+import java.util.Date;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 public class Voucher extends Imageable {
 

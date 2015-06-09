@@ -1,0 +1,24 @@
+<module>
+	<replace-with class="com.softdive.madpiggy.app.client.storage.user.MockUserStorage">
+		<when-type-is class="com.softdive.madpiggy.app.client.storage.user.UserStorage" />
+	</replace-with>
+    
+	<replace-with class="com.softdive.madpiggy.app.client.storage.user.DefaultUserStorage">
+		<when-type-is class="com.softdive.madpiggy.app.client.storage.user.UserStorage" />
+		<all>
+			<when-property-is name="madpiggy.env" value="yes" />
+		</all>
+	</replace-with>
+	
+	<replace-with class="com.softdive.madpiggy.app.client.storage.user.DefaultUserProfileStorage">
+		<when-type-is class="com.softdive.madpiggy.app.client.storage.user.UserProfileStorage" />
+	</replace-with>
+	
+	<replace-with class="com.softdive.madpiggy.app.client.storage.user.DefaultAddressStorage">
+		<when-type-is class="com.softdive.madpiggy.app.client.storage.user.AddressStorage" />
+	</replace-with>
+	
+	<replace-with class="com.softdive.madpiggy.app.client.storage.user.DefaultPreferenceStorage">
+		<when-type-is class="com.softdive.madpiggy.app.client.storage.user.PreferenceStorage" />
+	</replace-with>
+</module>

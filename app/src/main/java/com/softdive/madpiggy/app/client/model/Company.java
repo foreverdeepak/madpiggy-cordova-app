@@ -1,8 +1,9 @@
 package com.softdive.madpiggy.app.client.model;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 
 public class Company extends Imageable {
 
