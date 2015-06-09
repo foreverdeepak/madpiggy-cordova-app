@@ -1,11 +1,16 @@
 package com.softdive.madpiggy.app.client;
 
+import org.fusesource.restygwt.client.Defaults;
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
+import com.softdive.madpiggy.app.client.api.AdApi;
 import com.softdive.madpiggy.app.client.model.User;
+import com.softdive.madpiggy.app.client.rest.SingleApi;
 import com.softdive.madpiggy.app.client.widget.Spinner;
 
 /**
@@ -18,6 +23,8 @@ public class ClientFactoryImpl implements ClientFactory {
     private PlaceController placeController;
     private AppHistoryObserver historyObserver;
     private Spinner spinner;
+    private AdApi adApi;
+	private SingleApi singleApi;
 
     public ClientFactoryImpl(PhoneGap phoneGap) {
         this.phoneGap = phoneGap;
@@ -57,5 +64,22 @@ public class ClientFactoryImpl implements ClientFactory {
 			spinner = new Spinner();
 		}
 		return spinner;
+	}
+	
+	private SingleApi getSingleApi() {
+		if (singleApi == null) {
+			Defaults.setDateFormat(null);
+			Defaults.setServiceRoot(GWT.getHostPageBaseURL());
+			singleApi = GWT.create(SingleApi.class);
+		}
+		return singleApi;
+	}
+
+	@Override
+	public AdApi getAdApi() {
+		if (adApi == null) {
+			adApi = new AdApi(getSingleApi());
+		}
+		return adApi;
 	}
 }

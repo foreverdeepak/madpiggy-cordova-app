@@ -7,13 +7,15 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import com.google.gwt.user.client.Timer;
 import com.softdive.madpiggy.app.client.model.AdDto;
 import com.softdive.madpiggy.app.client.model.Advertisement;
 import com.softdive.madpiggy.app.client.model.Mall;
 import com.softdive.madpiggy.app.client.model.Outlet;
+import com.softdive.madpiggy.app.client.model.helper.Category;
 import com.softdive.madpiggy.app.client.model.helper.DealOutlet;
 import com.softdive.madpiggy.app.client.model.helper.DealWrapper;
+import com.softdive.madpiggy.app.client.tab.Tab;
+import com.softdive.madpiggy.app.client.tab.Tab.TabType;
 
 public class ListingDataStore {
 
@@ -29,18 +31,13 @@ public class ListingDataStore {
 	private static LinkedHashMap<Long, Collection<Long>> mallOutletMap = new LinkedHashMap<Long, Collection<Long>>();
 	private static LinkedHashMap<Long, AdDto> dealMap = new LinkedHashMap<Long, AdDto>();
 	private static ArrayList<Outlet> outlets = new ArrayList<Outlet>();
+	private static ArrayList<Tab> tabs = new ArrayList<Tab>();
 	
 	public static void saveList(DealWrapper wrapper) {
 		masterData = wrapper;
-		new Timer() {
-			
-			@Override
-			public void run() {
-				if (masterData != null) {
-					prepareData();
-				}
-			}
-		}.schedule(100);
+		if (masterData != null) {
+			prepareData();
+		}
 	}
 	
 	private static void prepareData() {
@@ -116,13 +113,32 @@ public class ListingDataStore {
 		dealMap.clear();
 		mallOutletMap.clear();
 		outlets.clear();
+		tabs.clear();
 	}
 
 	public static DealWrapper getList() {
 		return masterData;
 	}
 
-	public static Collection<Advertisement> getDealsByCategory(String category) {
+	public static Tab[] getTabs() {
+		if (tabs.size() > 0) {
+			return tabs.toArray(new Tab[tabs.size()]);
+		}
+		
+		DealWrapper wrapper = getList();
+
+		if (wrapper == null) {
+			tabs = getTabsInternal(null);
+			return tabs.toArray(new Tab[tabs.size()]);
+		}
+
+		Collection<Category> cats = wrapper.getCategories();
+
+		tabs = getTabsInternal(cats);
+		return tabs.toArray(new Tab[tabs.size()]);
+	}
+
+	public static Collection<Advertisement> getAdsByCategory(String category) {
 		DealWrapper wrapper = getList();
 		if (wrapper != null && wrapper.getAdvertisements() != null && wrapper.getAdvertisements().size() != 0) {
 			Collection<Advertisement> ads = new ArrayList<Advertisement>();
@@ -160,11 +176,30 @@ public class ListingDataStore {
 		return malls;
 	}
 
+	private static final ArrayList<Tab> getTabsInternal(Collection<Category> cats) {
+		ArrayList<Tab> tabs = new ArrayList<Tab>();
+
+		tabs.add(new Tab(TabType.DEALS.name(), TabType.DEALS));
+		tabs.add(new Tab(TabType.MALLS.name(), TabType.MALLS));
+		tabs.add(new Tab(TabType.OUTLETS.name(), TabType.OUTLETS));
+
+		if (cats == null || cats.size() == 0) {
+			tabs.add(new Tab("Food", TabType.CATEGORY));
+			tabs.add(new Tab("Apparels", TabType.CATEGORY));
+			tabs.add(new Tab("Electronics", TabType.CATEGORY));
+		} else {
+			for (Category cat : cats) {
+				tabs.add(new Tab(cat.getName(), TabType.CATEGORY));
+			}
+		}
+		return tabs;
+	}
+	
 	public static Collection<Advertisement> getDealsByOutletId(long outletId) {
 		return outletDealMap.get(outletId);
 	}
 	
-	public static AdDto getDealByDealId(long adId) {
+	public static AdDto getAdByAdId(long adId) {
 		return dealMap.get(adId);
 	}
 

@@ -6,7 +6,7 @@
 
     <ui:style>
         .abc {
-            padding-top: 128px;
+            padding-top: 0px;
             position: relative;
         }
 
@@ -31,19 +31,9 @@
                     </div>
 
                     <div class="bottom fit" horizontal="" layout="">
-
-                        <paper-tabs selected="0" flex="" scrollable="true" hideScrollButton="true" ui:field="paperTabsElement">
-
-                            <paper-tab>ITEM ONE</paper-tab>
-                            <paper-tab>ITEM TWO</paper-tab>
-                            <paper-tab>ITEM THREE</paper-tab>
-                            <paper-tab>ITEM FOUR</paper-tab>
-                            <paper-tab>ITEM FIVE</paper-tab>
-                            <paper-tab>ITEM SIX</paper-tab>
-                            <paper-tab>ITEM SEVEN</paper-tab>
-                            <paper-tab>ITEM EIGHT</paper-tab>
-                            <paper-tab>ITEM NINE</paper-tab>
-                        </paper-tabs>
+						
+						<p:PaperTabs selected="0" flex="0" scrollable="true" hideScrollButton="true" ui:field="paperTabs"/>
+                        
                     </div>
 
                 </core-toolbar>

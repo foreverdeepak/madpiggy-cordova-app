@@ -11,8 +11,6 @@ public interface NearbyView extends DrawerHeaderPanel.DrawableLayoutView, IsWidg
 
     void setPresenter(Presenter presenter);
     
-    void init();
-
     public static interface Presenter {
 
     	Widget getWidget(int index);

@@ -9,7 +9,8 @@ import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
  */
 public abstract class BaseActivity extends MGWTAbstractActivity {
 
-    private ClientFactory clientFactory;
+    protected ClientFactory clientFactory;
+    protected AcceptsOneWidget mainPanel;
 
     public BaseActivity(ClientFactory clientFactory) {
         this.clientFactory = clientFactory;
@@ -18,5 +19,6 @@ public abstract class BaseActivity extends MGWTAbstractActivity {
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         super.start(panel, eventBus);
+        this.mainPanel = panel;
     }
 }

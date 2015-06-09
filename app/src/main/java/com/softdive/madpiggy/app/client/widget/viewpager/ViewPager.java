@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.TouchMoveEvent;
@@ -30,6 +32,7 @@ import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPropertyHelper.Justification;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPropertyHelper.Orientation;
+import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollAnimationMoveEvent;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollEndEvent;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollMoveEvent;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
@@ -158,7 +161,7 @@ public class ViewPager extends Composite implements SelectionHandler<Integer>, H
 		scrollPanel.setAutoHandleResize(false);
 
 		currentPage = 0;
-
+		
 		scrollPanel.addScrollEndHandler(new ScrollEndEvent.Handler() {
 
 			@Override
@@ -167,6 +170,9 @@ public class ViewPager extends Composite implements SelectionHandler<Integer>, H
 
 				viewPagerIndicatorContainer.setSelectedIndex(page);
 				currentPage = page;
+				
+				viewPagerIndicatorContainer.setSelectedIndex(currentPage);
+				adapter.onItemSelected(currentPage);
 				SelectionEvent.fire(ViewPager.this, currentPage);
 
 			}
@@ -399,27 +405,39 @@ public class ViewPager extends Composite implements SelectionHandler<Integer>, H
 	}
 
 	@Override
-	public void onSelection(SelectionEvent<Integer> event) {
-		viewPagerIndicatorContainer.setSelectedIndex(currentPage);
-		adapter.onItemSelected(event.getSelectedItem());
-		handleOffscreenViews(event.getSelectedItem());
+	public void onSelection(final SelectionEvent<Integer> event) {
+		new Timer() {
+			
+			@Override
+			public void run() {
+				Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+					
+					@Override
+					public void execute() {
+						handleOffscreenViews(event.getSelectedItem());
+					}
+				});
+				
+			}
+		}.schedule(350);
+		
 	}
 	
 	private void handleOffscreenViews(int selectedItem) {
 		for (Map.Entry<Integer, FlowPanel> entrySet : indexToHolder.entrySet()) {
 			int entryIndex = entrySet.getKey();
 			if (!(entryIndex == selectedItem || entryIndex == selectedItem-(numberOfOffscreenViews/2) || entryIndex == selectedItem+(numberOfOffscreenViews/2))) {
-				entrySet.getValue().getElement().removeAllChildren();
+				//entrySet.getValue().getElement().removeAllChildren();
 			} else {
 				if (entrySet.getValue().getElement().getChildCount() == 0) {
 					Widget d = adapter.getWidget(entryIndex);
 					entrySet.getValue().add(d);
-					entrySet.getValue().setHeight(d.getOffsetHeight()+"px");
+					entrySet.getValue().setHeight(d.getElement().getStyle().getHeight());
 				}
 				if (entrySet.getKey() == selectedItem) {
 					Widget d = entrySet.getValue().getWidget(0);
-					container.setHeight(d.getOffsetHeight()+"px");
-					entrySet.getValue().setHeight(d.getOffsetHeight()+"px");
+					container.setHeight(d.getElement().getStyle().getHeight());
+					entrySet.getValue().setHeight(d.getElement().getStyle().getHeight());
 				}
 			}
 		}

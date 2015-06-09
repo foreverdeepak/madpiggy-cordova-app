@@ -5,15 +5,18 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
 import com.softdive.madpiggy.app.client.DrawerHeaderPanel;
+import com.softdive.madpiggy.app.client.tab.Tab;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAdapter;
-import com.vaadin.components.gwt.polymer.client.element.PaperTabsElement;
 import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
+import com.vaadin.components.gwt.polymer.client.widget.PaperTab;
+import com.vaadin.components.gwt.polymer.client.widget.PaperTabs;
 
 /**
  * Created by deepakc on 02/06/15.
@@ -29,16 +32,17 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 
     @UiField DrawerHeaderPanel drawerHeaderPanel;
     @UiField FlexPanel flexPanel;
-    @UiField PaperTabsElement paperTabsElement;
+    
+    @UiField PaperTabs paperTabs;
     
     private ViewPager viewPager;
+    private Tab[] tabs;
     
-    public NearbyViewImpl() {
+    public NearbyViewImpl(Tab[] tabs) {
+    	this.tabs = tabs;
         initWidget(ourUiBinder.createAndBindUi(this));
-    }
-
-	public void init() {
-		viewPager = new ViewPager();
+        
+        viewPager = new ViewPager();
         viewPager.setShowCarouselIndicator(false);
 
         viewPager.getElement().getStyle().setVisibility(Style.Visibility.HIDDEN);
@@ -52,20 +56,23 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
         }.schedule(350);
 
 
-        paperTabsElement.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        for (Tab tab : tabs) {
+        	paperTabs.add(new PaperTab(tab.getName()));
+		}
+        
+        paperTabs.getPolymerElement().addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
             @Override
             protected void handleEvent(CoreSelectEvent event) {
-                Integer index = Integer.parseInt(paperTabsElement.selected().toString());
+                Integer index = Integer.parseInt(paperTabs.getPolymerElement().selected().toString());
                 viewPager.setSelectedPage(index.intValue());
             }
         });
-
-        viewPager.setAdapter(this);
-	}
+    }
 
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
+        viewPager.setAdapter(this);
     }
 
     @Override
@@ -80,11 +87,11 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 
 	@Override
 	public int getItemCount() {
-		return 9;
+		return tabs.length;
 	}
 
 	@Override
 	public void onItemSelected(int index) {
-		paperTabsElement.selected(index + "");
+		paperTabs.getPolymerElement().selected(index + "");
 	}
 }
