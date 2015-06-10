@@ -1,32 +1,22 @@
 package com.softdive.madpiggy.app.client.nearby;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 
-import com.google.gwt.core.client.Scheduler;
-import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Style;
-import com.google.gwt.event.dom.client.ScrollEvent;
-import com.google.gwt.event.dom.client.ScrollHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
+import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.BaseActivity;
 import com.softdive.madpiggy.app.client.ClientFactory;
-import com.softdive.madpiggy.app.client.dealslisting.DealListView;
-import com.softdive.madpiggy.app.client.dealslisting.DealListViewImpl;
-import com.softdive.madpiggy.app.client.model.Advertisement;
 import com.softdive.madpiggy.app.client.model.helper.AdCriteria;
 import com.softdive.madpiggy.app.client.model.helper.DealWrapper;
-import com.softdive.madpiggy.app.client.storage.ListingDataStore;
+import com.softdive.madpiggy.app.client.model.helper.GeoCriteria;
+import com.softdive.madpiggy.app.client.model.helper.Latlng;
 import com.softdive.madpiggy.app.client.tab.Tab;
 import com.softdive.madpiggy.app.client.widget.Spinner;
 
@@ -35,15 +25,15 @@ import com.softdive.madpiggy.app.client.widget.Spinner;
  */
 public class NearbyActivity extends BaseActivity implements NearbyView.Presenter {
 	
-	private Tab[] tabs;
-
 	private NearbyView.DealsPresenter dealsPresenter;
 	private NearbyView.MallsPresenter mallsPresenter;
+	private NearbyView.OutletsPresenter outletsPresenter;
 
     public NearbyActivity(ClientFactory clientFactory) {
         super(clientFactory);
 		dealsPresenter = new DealsPresenterImpl(clientFactory);
-		mallsPresenter = new MallPresenterImpl(clientFactory);
+		mallsPresenter = new MallsPresenterImpl(clientFactory);
+		outletsPresenter = new OutletsPresenterImpl(clientFactory);
     }
 
     @Override
@@ -55,12 +45,23 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 
 	private void loadData() {
 		mainPanel.setWidget(new Spinner());
-		if (ListingDataStore.getList() == null || ListingDataStore.getList().getAdDtos() == null || ListingDataStore.getList().getAdDtos().size() == 0) {
-			clientFactory.getAdApi().getDealWrapper(new AdCriteria(), 0, 50, new MethodCallback<DealWrapper>() {
+		if (App.getListingDataStore().getList() == null || App.getListingDataStore().getList().getAdDtos() == null || App.getListingDataStore().getList().getAdDtos().size() == 0) {
+			
+			AdCriteria adCriteria = new AdCriteria();
+			Latlng position = clientFactory.getCurrentLocation();
+			GeoCriteria geoCriteria = new GeoCriteria();
+			if (position != null) {
+				geoCriteria.setLatitude(position.getLat());
+				geoCriteria.setLongitude(position.getLng());
+				geoCriteria.setRadius(10);
+			}
+			adCriteria.setGeoCriteria(geoCriteria);
+			
+			clientFactory.getAdApi().getDealWrapper(adCriteria, 0, 50, new MethodCallback<DealWrapper>() {
 				
 				@Override
 				public void onSuccess(Method method, DealWrapper response) {
-					ListingDataStore.saveList(response);
+					App.getListingDataStore().saveList(response);
 					onDataLoad();
 				}
 				
@@ -74,44 +75,36 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 	}
 
 	@Override
-	public Widget getWidget(final int i) {
+	public Widget getWidget(Tab tab) {
 		final ScrollPanel scrollPanel = new ScrollPanel();
         scrollPanel.setHeight(Window.getClientHeight() -128 + "px");
         scrollPanel.getElement().getStyle().setWidth(100, Style.Unit.PCT);
         
         FlowPanel flowPanel3 = new FlowPanel();
         flowPanel3.getElement().getStyle().setWidth(100, Style.Unit.PCT);
-        flowPanel3.add(getWidgetInternal(i));
+        flowPanel3.add(getWidgetInternal(tab));
         scrollPanel.add(flowPanel3);
         
         return scrollPanel;
 	}
 
 
-	private Widget getWidgetInternal(int index) {
-		switch (tabs[index].getTabType()) {
+	private Widget getWidgetInternal(Tab tab) {
+		switch (tab.getTabType()) {
 		case DEALS:
-			return getDealListView(index, ListingDataStore.getList().getAdvertisements());
 		case CATEGORY:
-			return getDealListView(index, ListingDataStore.getAdsByCategory(tabs[index].getName()));
+			return dealsPresenter.getWidget(tab);
 		case OUTLETS:
-			return new HTML("HTML");
+			return outletsPresenter.getWidget();
 		case MALLS:
-			return new HTML("HTML");
+			return mallsPresenter.getWidget();
 		default:
-			return getDealListView(index, ListingDataStore.getList().getAdvertisements());
+			return dealsPresenter.getWidget(tab);
 		}
 	}
 
-	private Widget getDealListView(int index, Collection<Advertisement> ads) {
-		DealListView view = new DealListViewImpl();
-		view.render(ads, 0);
-		return view.asWidget();
-	}
-
 	private void onDataLoad() {
-		tabs = ListingDataStore.getTabs();
-		NearbyView nearbyView = new NearbyViewImpl(tabs);
+		NearbyView nearbyView = new NearbyViewImpl(App.getListingDataStore().getTabs());
 		nearbyView.setPresenter(NearbyActivity.this);
 
 		mainPanel.setWidget(nearbyView);

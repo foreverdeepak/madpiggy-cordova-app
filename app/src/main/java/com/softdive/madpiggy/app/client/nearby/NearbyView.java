@@ -14,20 +14,26 @@ public interface NearbyView extends DrawerHeaderPanel.DrawableLayoutView, IsWidg
     
     public static interface Presenter {
 
-    	Widget getWidget(int index);
+    	Widget getWidget(Tab tab);
 
     }
 
     public static interface  DealsPresenter {
         Widget getWidget(Tab tab);
+        
+        void onStop();
     }
 
     public static interface  OutletsPresenter {
         Widget getWidget();
+        
+        void onStop();
     }
 
     public static interface  MallsPresenter {
         Widget getWidget();
+        
+        void onStop();
     }
 
 

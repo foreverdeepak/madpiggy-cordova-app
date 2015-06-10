@@ -7,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import com.google.gwt.user.client.Window;
 import com.softdive.madpiggy.app.client.model.AdDto;
 import com.softdive.madpiggy.app.client.model.Advertisement;
 import com.softdive.madpiggy.app.client.model.Mall;
@@ -20,28 +19,27 @@ import com.softdive.madpiggy.app.client.tab.Tab.TabType;
 
 public class ListingDataStore {
 
-	public static final Logger logger = Logger.getLogger(ListingDataStore.class.getName());
+	public final Logger logger = Logger.getLogger(ListingDataStore.class.getName());
 
 	public static final String DEAL_WRAPPER_KEY = "DEAL_WRAPPER_KEY";
 
 	public static DealWrapper masterData = null;
-	private static LinkedHashMap<Long, Mall> mallMap = new LinkedHashMap<Long, Mall>();
-	private static LinkedHashMap<Long, Outlet> outletMap = new LinkedHashMap<Long, Outlet>();
-	private static LinkedHashMap<Long, Collection<Outlet>> dealOutletMap = new LinkedHashMap<Long, Collection<Outlet>>();
-	private static LinkedHashMap<Long, Collection<Advertisement>> outletDealMap = new LinkedHashMap<Long, Collection<Advertisement>>();
-	private static LinkedHashMap<Long, Collection<Long>> mallOutletMap = new LinkedHashMap<Long, Collection<Long>>();
-	private static LinkedHashMap<Long, AdDto> dealMap = new LinkedHashMap<Long, AdDto>();
-	private static ArrayList<Outlet> outlets = new ArrayList<Outlet>();
-	private static ArrayList<Tab> tabs = new ArrayList<Tab>();
+	private LinkedHashMap<Long, Mall> mallMap = new LinkedHashMap<Long, Mall>();
+	private LinkedHashMap<Long, Outlet> outletMap = new LinkedHashMap<Long, Outlet>();
+	private LinkedHashMap<Long, Collection<Outlet>> dealOutletMap = new LinkedHashMap<Long, Collection<Outlet>>();
+	private LinkedHashMap<Long, Collection<Advertisement>> outletDealMap = new LinkedHashMap<Long, Collection<Advertisement>>();
+	private LinkedHashMap<Long, Collection<Long>> mallOutletMap = new LinkedHashMap<Long, Collection<Long>>();
+	private LinkedHashMap<Long, AdDto> dealMap = new LinkedHashMap<Long, AdDto>();
+	private ArrayList<Tab> tabs = new ArrayList<Tab>();
 	
-	public static void saveList(DealWrapper wrapper) {
+	public void saveList(DealWrapper wrapper) {
 		masterData = wrapper;
 		if (masterData != null) {
 			prepareData();
 		}
 	}
 	
-	private static void prepareData() {
+	private void prepareData() {
 		
 		if (masterData.getAdDtos() != null) {
 			for (AdDto ad : masterData.getAdDtos()) {
@@ -99,13 +97,9 @@ public class ListingDataStore {
 			}
 		}
 		
-		if (masterData.getOutlets() != null) {
-			outlets = new ArrayList<Outlet>(masterData.getOutlets());
-		}
-		
 	}
 
-	public static void clearStore() {
+	public void clearStore() {
 		masterData = null;
 		mallMap.clear();
 		outletMap.clear();
@@ -113,15 +107,14 @@ public class ListingDataStore {
 		outletDealMap.clear();
 		dealMap.clear();
 		mallOutletMap.clear();
-		outlets.clear();
 		tabs.clear();
 	}
 
-	public static DealWrapper getList() {
+	public DealWrapper getList() {
 		return masterData;
 	}
 
-	public static Tab[] getTabs() {
+	public Tab[] getTabs() {
 		if (tabs.size() > 0) {
 			return tabs.toArray(new Tab[tabs.size()]);
 		}
@@ -139,7 +132,7 @@ public class ListingDataStore {
 		return tabs.toArray(new Tab[tabs.size()]);
 	}
 
-	public static Collection<Advertisement> getAdsByCategory(String category) {
+	public Collection<Advertisement> getAdsByCategory(String category) {
 		DealWrapper wrapper = getList();
 		if (wrapper != null && wrapper.getAdvertisements() != null && wrapper.getAdvertisements().size() != 0) {
 			Collection<Advertisement> ads = new ArrayList<Advertisement>();
@@ -156,11 +149,11 @@ public class ListingDataStore {
 
 	}
 
-	public static Collection<Outlet> getOutletsByDealId(long dealId) {
+	public Collection<Outlet> getOutletsByDealId(long dealId) {
 		return dealOutletMap.get(dealId);
 	}
 
-	public static Collection<Mall> getMallsByOutletIds(Collection<Long> outletIds) {
+	public Collection<Mall> getMallsByOutletIds(Collection<Long> outletIds) {
 
 		DealWrapper wrapper = getList();
 		
@@ -177,7 +170,7 @@ public class ListingDataStore {
 		return malls;
 	}
 
-	private static final ArrayList<Tab> getTabsInternal(Collection<Category> cats) {
+	private final ArrayList<Tab> getTabsInternal(Collection<Category> cats) {
 		ArrayList<Tab> tabs = new ArrayList<Tab>();
 
 		tabs.add(new Tab(TabType.DEALS.name(), TabType.DEALS));
@@ -196,23 +189,23 @@ public class ListingDataStore {
 		return tabs;
 	}
 	
-	public static Collection<Advertisement> getDealsByOutletId(long outletId) {
+	public Collection<Advertisement> getDealsByOutletId(long outletId) {
 		return outletDealMap.get(outletId);
 	}
 	
-	public static AdDto getAdByAdId(long adId) {
+	public AdDto getAdByAdId(long adId) {
 		return dealMap.get(adId);
 	}
 
-	public static Outlet getOutletbyId(long outletId) {
+	public Outlet getOutletbyId(long outletId) {
 		return outletMap.get(outletId);
 	}
 	
-	public static Mall getMallbyId(long mallId) {
+	public Mall getMallbyId(long mallId) {
 		return mallMap.get(mallId);
 	}
 	
-	public static Collection<Advertisement> getDealsByMallId(long mallId) {
+	public Collection<Advertisement> getDealsByMallId(long mallId) {
 		Collection<Long> outletIds = mallOutletMap.get(mallId);
 		Set<Advertisement> advertisements = new HashSet<Advertisement>();
 		
@@ -225,15 +218,4 @@ public class ListingDataStore {
 		return advertisements;
 	}
 	
-	public static Collection<Outlet> getOutlets(int offset, int pageSize) {
-		if (pageSize > outlets.size()) {
-			pageSize = outlets.size();
-		}
-		try {
-			return outlets.subList(offset, pageSize);
-		} catch (Exception e) {
-			return null;
-		}
-	}
-
 }

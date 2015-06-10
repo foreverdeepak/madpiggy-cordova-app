@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+
+	<ui:style>
+	.icon {
+		height: 50px;
+		width: 50px;
+		fill: #fff;
+	}
+	
+	.center {
+		text-align: center;
+	}
+	
+	
+	</ui:style>
+	<mgwt:panel.flex.RootFlexPanel orientation="HORIZONTAL" ui:field="parent" justification="CENTER" width="100%" addStyleNames="widget-parent">
+		<mgwt:panel.flex.FlexPanel orientation="VERTICAL" justification="CENTER" height="100%">
+			<g:HTMLPanel addStyleNames="{style.center}">
+				<core-icon ui:field="notFoundIcon" class="{style.icon}"/>
+				<g:Label ui:field="notFoundTitle" styleName="font-large" />
+				<g:Label ui:field="notFoundDesription" styleName="font-medium"/>
+			</g:HTMLPanel>
+		</mgwt:panel.flex.FlexPanel>
+	</mgwt:panel.flex.RootFlexPanel>
+</ui:UiBinder> 

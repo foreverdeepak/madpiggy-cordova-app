@@ -10,12 +10,12 @@ import com.softdive.madpiggy.app.client.model.Outlet;
 
 public class DealWrapper {
 
-	private Collection<AdDto> adDtos;
-	private Collection<Outlet> outlets;
-	private Collection<Mall> malls;
-	private Collection<Category> categories;
-	private Collection<DealOutlet> dealOutletMapping;
-	private Collection<Advertisement> advertisements;
+	private Collection<AdDto> adDtos = new ArrayList<AdDto>();
+	private Collection<Outlet> outlets = new ArrayList<Outlet>();
+	private Collection<Mall> malls = new ArrayList<Mall>();
+	private Collection<Category> categories = new ArrayList<Category>();
+	private Collection<DealOutlet> dealOutletMapping = new ArrayList<DealOutlet>();
+	private Collection<Advertisement> advertisements = new ArrayList<Advertisement>();
 
 	public Collection<AdDto> getAdDtos() {
 		return adDtos;

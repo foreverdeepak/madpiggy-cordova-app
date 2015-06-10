@@ -5,7 +5,6 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -82,7 +81,7 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 
 	@Override
 	public Widget getWidget(final int i) {
-		return presenter.getWidget(i);
+		return presenter.getWidget(tabs[i]);
 	}
 
 	@Override

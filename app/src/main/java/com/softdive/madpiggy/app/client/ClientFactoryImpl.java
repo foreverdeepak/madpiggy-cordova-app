@@ -8,9 +8,15 @@ import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
+import com.googlecode.gwtphonegap.client.geolocation.Geolocation;
+import com.googlecode.gwtphonegap.client.geolocation.GeolocationCallback;
+import com.googlecode.gwtphonegap.client.geolocation.Position;
+import com.googlecode.gwtphonegap.client.geolocation.PositionError;
 import com.softdive.madpiggy.app.client.api.AdApi;
 import com.softdive.madpiggy.app.client.model.User;
+import com.softdive.madpiggy.app.client.model.helper.Latlng;
 import com.softdive.madpiggy.app.client.rest.SingleApi;
+import com.softdive.madpiggy.app.client.storage.user.UserStorage;
 import com.softdive.madpiggy.app.client.widget.Spinner;
 
 /**
@@ -25,12 +31,14 @@ public class ClientFactoryImpl implements ClientFactory {
     private Spinner spinner;
     private AdApi adApi;
 	private SingleApi singleApi;
+	private Geolocation geolocation;
 
     public ClientFactoryImpl(PhoneGap phoneGap) {
         this.phoneGap = phoneGap;
         this.eventBus = new SimpleEventBus();
         this.placeController = new PlaceController(eventBus);
         this.historyObserver = new AppHistoryObserver(this);
+        initGeolocation();
     }
 
     @Override
@@ -55,7 +63,7 @@ public class ClientFactoryImpl implements ClientFactory {
 
     @Override
     public User getUser() {
-        return null;
+        return UserStorage.USER_STORAGE.retrieveSavedUser();
     }
 
 	@Override
@@ -81,5 +89,29 @@ public class ClientFactoryImpl implements ClientFactory {
 			adApi = new AdApi(getSingleApi());
 		}
 		return adApi;
+	}
+	
+	public void initGeolocation() {
+		if (geolocation == null) {
+			geolocation = GWT.create(Geolocation.class);
+		}
+		geolocation.getCurrentPosition(new GeolocationCallback() {
+
+			@Override
+			public void onSuccess(Position p) {
+				UserStorage.USER_STORAGE.updateUserLocation(new Latlng(p.getCoordinates().getLatitude(), p.getCoordinates().getLongitude()));
+			}
+
+			@Override
+			public void onFailure(PositionError error) {
+			}
+
+		});
+	}
+
+	@Override
+	public Latlng getCurrentLocation() {
+		initGeolocation();
+		return UserStorage.USER_STORAGE.getUserLocation();
 	}
 }
