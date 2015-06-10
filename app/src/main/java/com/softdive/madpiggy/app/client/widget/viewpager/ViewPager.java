@@ -414,7 +414,7 @@ public class ViewPager extends Composite implements SelectionHandler<Integer>, H
 					
 					@Override
 					public void execute() {
-						handleOffscreenViews(event.getSelectedItem());
+						updateContainerHeight(event.getSelectedItem());
 					}
 				});
 				
@@ -423,22 +423,12 @@ public class ViewPager extends Composite implements SelectionHandler<Integer>, H
 		
 	}
 	
-	private void handleOffscreenViews(int selectedItem) {
+	private void updateContainerHeight(int selectedItem) {
 		for (Map.Entry<Integer, FlowPanel> entrySet : indexToHolder.entrySet()) {
-			int entryIndex = entrySet.getKey();
-			if (!(entryIndex == selectedItem || entryIndex == selectedItem-(numberOfOffscreenViews/2) || entryIndex == selectedItem+(numberOfOffscreenViews/2))) {
-				//entrySet.getValue().getElement().removeAllChildren();
-			} else {
-				if (entrySet.getValue().getElement().getChildCount() == 0) {
-					Widget d = adapter.getWidget(entryIndex);
-					entrySet.getValue().add(d);
-					entrySet.getValue().setHeight(d.getElement().getStyle().getHeight());
-				}
-				if (entrySet.getKey() == selectedItem) {
-					Widget d = entrySet.getValue().getWidget(0);
-					container.setHeight(d.getElement().getStyle().getHeight());
-					entrySet.getValue().setHeight(d.getElement().getStyle().getHeight());
-				}
+			if (entrySet.getKey() == selectedItem) {
+				Widget d = entrySet.getValue().getWidget(0);
+				container.setHeight(d.getElement().getStyle().getHeight());
+				entrySet.getValue().setHeight(d.getElement().getStyle().getHeight());
 			}
 		}
 	}

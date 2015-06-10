@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import com.google.gwt.user.client.Window;
 import com.softdive.madpiggy.app.client.model.AdDto;
 import com.softdive.madpiggy.app.client.model.Advertisement;
 import com.softdive.madpiggy.app.client.model.Mall;
@@ -133,7 +134,7 @@ public class ListingDataStore {
 		}
 
 		Collection<Category> cats = wrapper.getCategories();
-
+		
 		tabs = getTabsInternal(cats);
 		return tabs.toArray(new Tab[tabs.size()]);
 	}

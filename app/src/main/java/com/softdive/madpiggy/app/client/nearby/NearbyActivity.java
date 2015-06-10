@@ -45,7 +45,6 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         super.start(panel, eventBus);
-        tabs = ListingDataStore.getTabs();
         indexToScrol = new HashMap<Integer, Integer>();
         
         loadData();
@@ -59,7 +58,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 				@Override
 				public void onSuccess(Method method, DealWrapper response) {
 					ListingDataStore.saveList(response);
-					renderView();
+					onDataLoad();
 				}
 				
 				@Override
@@ -67,7 +66,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 				}
 			});
 		} else {
-			renderView();
+			onDataLoad();
 		}
 	}
 
@@ -131,7 +130,8 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 		return view.asWidget();
 	}
 
-	private void renderView() {
+	private void onDataLoad() {
+		tabs = ListingDataStore.getTabs();
 		NearbyView nearbyView = new NearbyViewImpl(tabs);
 		nearbyView.setPresenter(NearbyActivity.this);
 		mainPanel.setWidget(nearbyView);
