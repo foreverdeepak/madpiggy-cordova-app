@@ -35,18 +35,21 @@ import com.softdive.madpiggy.app.client.widget.Spinner;
  */
 public class NearbyActivity extends BaseActivity implements NearbyView.Presenter {
 	
-	private Map<Integer, Integer> indexToScrol;
 	private Tab[] tabs;
+
+	private NearbyView.DealsPresenter dealsPresenter;
+	private NearbyView.MallsPresenter mallsPresenter;
 
     public NearbyActivity(ClientFactory clientFactory) {
         super(clientFactory);
+		dealsPresenter = new DealsPresenterImpl(clientFactory);
+		mallsPresenter = new MallPresenterImpl(clientFactory);
     }
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         super.start(panel, eventBus);
-        indexToScrol = new HashMap<Integer, Integer>();
-        
+
         loadData();
     }
 
@@ -81,34 +84,10 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
         flowPanel3.add(getWidgetInternal(i));
         scrollPanel.add(flowPanel3);
         
-        addScrollHandler(i, scrollPanel);
-        updateLastScrollPosition(i, scrollPanel);
-		
         return scrollPanel;
 	}
 
-	public void addScrollHandler(final int i, final ScrollPanel scrollPanel) {
-		scrollPanel.addScrollHandler(new ScrollHandler() {
-			
-			@Override
-			public void onScroll(ScrollEvent event) {
-				indexToScrol.put(i, scrollPanel.getVerticalScrollPosition());
-			}
-		});
-	}
 
-	public void updateLastScrollPosition(final int i, final ScrollPanel scrollPanel) {
-		if (indexToScrol.get(i) != null) {
-        	Scheduler.get().scheduleDeferred(new ScheduledCommand() {
-        		
-        		@Override
-        		public void execute() {
-        			scrollPanel.setVerticalScrollPosition(indexToScrol.get(i));
-        		}
-        	});
-        }
-	}
-	
 	private Widget getWidgetInternal(int index) {
 		switch (tabs[index].getTabType()) {
 		case DEALS:
@@ -134,6 +113,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 		tabs = ListingDataStore.getTabs();
 		NearbyView nearbyView = new NearbyViewImpl(tabs);
 		nearbyView.setPresenter(NearbyActivity.this);
+
 		mainPanel.setWidget(nearbyView);
 	}
 }
