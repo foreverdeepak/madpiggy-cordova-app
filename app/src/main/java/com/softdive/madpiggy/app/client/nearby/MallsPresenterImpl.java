@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import com.google.gwt.user.client.ui.Widget;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.ClientFactory;
+import com.softdive.madpiggy.app.client.detail.AbstractDetailPresenter;
 import com.softdive.madpiggy.app.client.jsinterop.Native;
 import com.softdive.madpiggy.app.client.malllist.MallList;
 import com.softdive.madpiggy.app.client.malllist.MallWidget;

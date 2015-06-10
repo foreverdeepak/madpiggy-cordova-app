@@ -10,5 +10,5 @@ public enum Page {
     NOTIFICATIONS,
     CHECKIN,
     ABOUT,
-    LOGOUT
+    LOGOUT, 
 }

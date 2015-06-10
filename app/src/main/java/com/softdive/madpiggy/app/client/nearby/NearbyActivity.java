@@ -73,6 +73,12 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 			onDataLoad();
 		}
 	}
+	
+	public void onItemClick() {
+		//create the detail presenter
+		//page change animation
+		//start presenter
+	}
 
 	@Override
 	public Widget getWidget(Tab tab) {

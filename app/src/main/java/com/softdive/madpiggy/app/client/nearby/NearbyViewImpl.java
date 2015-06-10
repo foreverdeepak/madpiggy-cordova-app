@@ -1,6 +1,7 @@
 package com.softdive.madpiggy.app.client.nearby;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -14,6 +15,7 @@ import com.softdive.madpiggy.app.client.tab.Tab;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAdapter;
 import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
+import com.vaadin.components.gwt.polymer.client.widget.CoreAnimatedPages;
 import com.vaadin.components.gwt.polymer.client.widget.PaperTab;
 import com.vaadin.components.gwt.polymer.client.widget.PaperTabs;
 
@@ -31,8 +33,9 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 
     @UiField DrawerHeaderPanel drawerHeaderPanel;
     @UiField FlexPanel flexPanel;
-    
     @UiField PaperTabs paperTabs;
+    @UiField CoreAnimatedPages pages;
+    @UiField Element detailView;
     
     private ViewPager viewPager;
     private Tab[] tabs;
@@ -92,5 +95,13 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 	@Override
 	public void onItemSelected(int index) {
 		paperTabs.getPolymerElement().selected(index + "");
+	}
+	
+	public void clearDetailView() {
+		detailView.removeAllChildren();
+	}
+
+	public void setDetailView(Widget widget) {
+		detailView.appendChild(widget.getElement());
 	}
 }
