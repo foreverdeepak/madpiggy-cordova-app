@@ -13,6 +13,7 @@ import com.googlecode.gwtphonegap.client.geolocation.GeolocationCallback;
 import com.googlecode.gwtphonegap.client.geolocation.Position;
 import com.googlecode.gwtphonegap.client.geolocation.PositionError;
 import com.softdive.madpiggy.app.client.api.AdApi;
+import com.softdive.madpiggy.app.client.api.UserApi;
 import com.softdive.madpiggy.app.client.model.User;
 import com.softdive.madpiggy.app.client.model.helper.Latlng;
 import com.softdive.madpiggy.app.client.rest.SingleApi;
@@ -30,6 +31,7 @@ public class ClientFactoryImpl implements ClientFactory {
     private AppHistoryObserver historyObserver;
     private Spinner spinner;
     private AdApi adApi;
+    private UserApi userApi;
 	private SingleApi singleApi;
 	private Geolocation geolocation;
 
@@ -113,5 +115,18 @@ public class ClientFactoryImpl implements ClientFactory {
 	public Latlng getCurrentLocation() {
 		initGeolocation();
 		return UserStorage.USER_STORAGE.getUserLocation();
+	}
+
+	@Override
+	public UserApi getUserApi() {
+		if (userApi == null) {
+			userApi = new UserApi(getSingleApi());
+		}
+		return userApi;
+	}
+	
+	@Override
+	public void updateUser(User user) {
+		UserStorage.USER_STORAGE.updateUser(user);
 	}
 }

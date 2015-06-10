@@ -3,7 +3,6 @@ package com.softdive.madpiggy.app.client.nearby;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.ClientFactory;

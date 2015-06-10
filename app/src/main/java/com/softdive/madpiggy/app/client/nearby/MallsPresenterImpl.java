@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.fusesource.restygwt.client.Method;
+import org.fusesource.restygwt.client.MethodCallback;
+
 import com.google.gwt.user.client.ui.Widget;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.ClientFactory;
@@ -13,6 +16,7 @@ import com.softdive.madpiggy.app.client.malllist.MallList;
 import com.softdive.madpiggy.app.client.malllist.MallWidget;
 import com.softdive.madpiggy.app.client.model.Mall;
 import com.softdive.madpiggy.app.client.model.Preference;
+import com.softdive.madpiggy.app.client.model.User;
 import com.softdive.madpiggy.app.client.model.helper.FavouritePreferences;
 import com.softdive.madpiggy.app.client.model.helper.MallWrapper;
 import com.softdive.madpiggy.app.client.storage.user.UserConstants;
@@ -103,21 +107,21 @@ public class MallsPresenterImpl implements NearbyView.MallsPresenter, CellSelect
 			FavouritePreferences favouritePreferences = new FavouritePreferences();
 			favouritePreferences.setDisLikedPreference(disLikedPreferences);
 			favouritePreferences.setLikedPreference(likedPreferences);
-//			clientFactory.getUserApi().updateFavourite(clientFactory.getUser().getId(), favouritePreferences,
-//					new MethodCallback<Collection<Preference>>() {
-//
-//						@Override
-//						public void onSuccess(Method method, Collection<Preference> response) {
-//							User user = clientFactory.getUser();
-//							user.setPreferences(response);
-//							clientFactory.updateUser(user);
-//						}
-//
-//						@Override
-//						public void onFailure(Method method, Throwable exception) {
-//
-//						}
-//					});
+			clientFactory.getUserApi().updateFavourite(clientFactory.getUser().getId(), favouritePreferences,
+					new MethodCallback<Collection<Preference>>() {
+
+						@Override
+						public void onSuccess(Method method, Collection<Preference> response) {
+							User user = clientFactory.getUser();
+							user.setPreferences(response);
+							clientFactory.updateUser(user);
+						}
+
+						@Override
+						public void onFailure(Method method, Throwable exception) {
+
+						}
+					});
 		}
 	}
 

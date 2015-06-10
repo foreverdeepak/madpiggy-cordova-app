@@ -115,5 +115,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 	public void onStop() {
 		super.onStop();
 		outletsPresenter.onStop();
+		mallsPresenter.onStop();
+		dealsPresenter.onStop();
 	}
 }
