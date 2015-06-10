@@ -28,9 +28,12 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 	private NearbyView.DealsPresenter dealsPresenter;
 	private NearbyView.MallsPresenter mallsPresenter;
 	private NearbyView.OutletsPresenter outletsPresenter;
+	
+	private NearbyView nearbyView;
 
     public NearbyActivity(ClientFactory clientFactory) {
         super(clientFactory);
+        nearbyView = new NearbyViewImpl();
 		dealsPresenter = new DealsPresenterImpl(clientFactory);
 		mallsPresenter = new MallsPresenterImpl(clientFactory);
 		outletsPresenter = new OutletsPresenterImpl(clientFactory);
@@ -40,11 +43,11 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         super.start(panel, eventBus);
 
+        mainPanel.setWidget(nearbyView);
         loadData();
     }
 
 	private void loadData() {
-		mainPanel.setWidget(new Spinner());
 		if (App.getListingDataStore().getList() == null || App.getListingDataStore().getList().getAdDtos() == null || App.getListingDataStore().getList().getAdDtos().size() == 0) {
 			
 			AdCriteria adCriteria = new AdCriteria();
@@ -53,7 +56,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 			if (position != null) {
 				geoCriteria.setLatitude(position.getLat());
 				geoCriteria.setLongitude(position.getLng());
-				geoCriteria.setRadius(10);
+				//geoCriteria.setRadius(10);
 			}
 			adCriteria.setGeoCriteria(geoCriteria);
 			
@@ -104,9 +107,13 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 	}
 
 	private void onDataLoad() {
-		NearbyView nearbyView = new NearbyViewImpl(App.getListingDataStore().getTabs());
+		nearbyView.setTabs(App.getListingDataStore().getTabs());
 		nearbyView.setPresenter(NearbyActivity.this);
-
-		mainPanel.setWidget(nearbyView);
+	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
+		outletsPresenter.onStop();
 	}
 }

@@ -58,7 +58,7 @@ public class DealWrapper {
 	}
 	
 	public Collection<Advertisement> getAdvertisements() {
-		if (advertisements != null) return advertisements;
+		if (advertisements != null && advertisements.size() > 0) return advertisements;
 		
 		if (adDtos == null || adDtos.size() == 0) return null;
 		

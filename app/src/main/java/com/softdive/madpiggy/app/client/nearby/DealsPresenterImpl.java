@@ -3,6 +3,7 @@ package com.softdive.madpiggy.app.client.nearby;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.ClientFactory;
@@ -26,7 +27,6 @@ public class DealsPresenterImpl implements NearbyView.DealsPresenter {
 
     @Override
     public Widget getWidget(Tab tab) {
-    	dealListView = new DealListViewImpl();
     	Collection<Advertisement> ads = new ArrayList<Advertisement>();
     	switch (tab.getTabType()) {
 		case DEALS:
@@ -46,6 +46,7 @@ public class DealsPresenterImpl implements NearbyView.DealsPresenter {
 					"Look Like we Don't Have Any Deals in your nearby area. Please change your location in Settings and try again");
     	}
     	
+    	dealListView = new DealListViewImpl();
     	dealListView.render(ads, 0);
     	
         return dealListView.asWidget();
