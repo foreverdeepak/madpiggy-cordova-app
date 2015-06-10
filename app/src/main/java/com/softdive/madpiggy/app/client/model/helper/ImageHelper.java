@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.softdive.madpiggy.app.client.model.Image;
-import com.softdive.madpiggy.app.client.model.Imageable;
 import com.softdive.madpiggy.app.client.model.Image.ImageType;
+import com.softdive.madpiggy.app.client.model.Imageable;
 
 public class ImageHelper {
 

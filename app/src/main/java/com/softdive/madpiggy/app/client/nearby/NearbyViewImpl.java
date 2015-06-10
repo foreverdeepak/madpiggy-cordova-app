@@ -10,10 +10,10 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
 import com.softdive.madpiggy.app.client.DrawerHeaderPanel;
+import com.softdive.madpiggy.app.client.polymer.element.PaperTabsElement;
+import com.softdive.madpiggy.app.client.polymer.element.event.PaperSelectEvent;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAdapter;
-import com.vaadin.components.gwt.polymer.client.element.PaperTabsElement;
-import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
 
 /**
  * Created by deepakc on 02/06/15.
@@ -52,9 +52,9 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
         }.schedule(350);
 
 
-        paperTabsElement.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        paperTabsElement.addEventListener(PaperSelectEvent.NAME, new PaperSelectEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
+            protected void handleEvent(PaperSelectEvent event) {
                 Integer index = Integer.parseInt(paperTabsElement.selected().toString());
                 viewPager.setSelectedPage(index.intValue());
             }

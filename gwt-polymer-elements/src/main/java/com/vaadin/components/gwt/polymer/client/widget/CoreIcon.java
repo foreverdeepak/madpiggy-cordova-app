@@ -19,8 +19,8 @@ public class CoreIcon extends PolymerWidget {
 
     }
 
-    public CoreIconElement getPolymerElement() {
-        return (CoreIconElement) getElement();
+    public IronIconElement getPolymerElement() {
+        return (IronIconElement) getElement();
     }
     
 

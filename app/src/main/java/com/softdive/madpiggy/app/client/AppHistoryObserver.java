@@ -1,5 +1,7 @@
 package com.softdive.madpiggy.app.client;
 
+import java.util.logging.Logger;
+
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.History;
 import com.google.web.bindery.event.shared.EventBus;
@@ -10,8 +12,6 @@ import com.googlecode.gwtphonegap.client.event.BackButtonPressedHandler;
 import com.googlecode.mgwt.dom.client.event.mouse.HandlerRegistrationCollection;
 import com.googlecode.mgwt.mvp.client.history.HistoryHandler;
 import com.googlecode.mgwt.mvp.client.history.HistoryObserver;
-
-import java.util.logging.Logger;
 
 public class AppHistoryObserver implements HistoryObserver {
 

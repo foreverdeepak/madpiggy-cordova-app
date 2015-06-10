@@ -1,11 +1,7 @@
 package com.softdive.madpiggy.app.client.widget.celllist;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.EventTarget;
-import com.google.gwt.dom.client.Node;
-import com.google.gwt.event.dom.client.TouchEvent;
 import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.Window;
 
 public class CellSelectedEvent extends GwtEvent<CellSelectedHandler> {
 

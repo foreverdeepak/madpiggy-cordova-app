@@ -15,7 +15,6 @@ package com.softdive.madpiggy.app.client.widget.viewpager;
 
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Widget;
-
 import com.googlecode.mgwt.ui.client.util.MGWTCssResource;
 
 public interface ViewPagerAppearance {

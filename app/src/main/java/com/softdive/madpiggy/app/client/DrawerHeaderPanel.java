@@ -11,15 +11,15 @@ import com.softdive.madpiggy.app.client.element.event.CoreTapEvent;
 import com.softdive.madpiggy.app.client.model.User;
 import com.softdive.madpiggy.app.client.nearby.NearbyPlace;
 import com.softdive.madpiggy.app.client.notification.NotificationPlace;
-import com.vaadin.components.gwt.polymer.client.element.CoreMenuElement;
-import com.vaadin.components.gwt.polymer.client.element.PaperItemElement;
-import com.vaadin.components.gwt.polymer.client.widget.CoreHeaderPanel;
+import com.softdive.madpiggy.app.client.polymer.element.IronMenuElement;
+import com.softdive.madpiggy.app.client.polymer.element.PaperItemElement;
+import com.softdive.madpiggy.app.client.polymer.widget.PaperHeaderPanel;
 
 /**
  * Created by deepakc on 27/05/15.
  */
 public class DrawerHeaderPanel extends Composite {
-    interface DrawerHeaderPanelUiBinder extends UiBinder<CoreHeaderPanel, DrawerHeaderPanel> {
+    interface DrawerHeaderPanelUiBinder extends UiBinder<PaperHeaderPanel, DrawerHeaderPanel> {
     }
 
     private static DrawerHeaderPanelUiBinder ourUiBinder = GWT.create(DrawerHeaderPanelUiBinder.class);
@@ -34,7 +34,7 @@ public class DrawerHeaderPanel extends Composite {
     @UiField PaperItemElement about;
     @UiField PaperItemElement logout;
 
-    @UiField CoreMenuElement menu;
+    @UiField IronMenuElement menu;
 
     public DrawerHeaderPanel() {
         initWidget(ourUiBinder.createAndBindUi(this));

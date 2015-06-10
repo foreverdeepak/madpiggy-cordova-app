@@ -1,6 +1,6 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
-             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'>
+             xmlns:p='urn:import:com.softdive.madpiggy.app.client.polymer.widget'>
     <p:PaperMenuButton layout="" horizontal="">
         <paper-icon-button icon="more-vert"></paper-icon-button>
         <paper-dropdown class="dropdown" halign="right">

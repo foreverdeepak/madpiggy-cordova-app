@@ -14,7 +14,10 @@ import com.googlecode.gwtphonegap.client.PhoneGapTimeoutHandler;
 import com.googlecode.mgwt.mvp.client.history.MGWTPlaceHistoryHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.MGWTSettings;
+import com.softdive.madpiggy.app.client.dealslisting.DealListPlace;
+import com.softdive.madpiggy.app.client.dealslisting.DealListPlace.DealType;
 import com.softdive.madpiggy.app.client.nearby.NearbyPlace;
+import com.softdive.madpiggy.app.client.signin.LoginPlace;
 
 public class AppEntryPoint implements EntryPoint {
 

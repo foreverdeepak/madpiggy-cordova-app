@@ -1,6 +1,5 @@
 package com.softdive.madpiggy.app.client.nearby;
 
-import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 import com.softdive.madpiggy.app.client.AbstractPlace;
 

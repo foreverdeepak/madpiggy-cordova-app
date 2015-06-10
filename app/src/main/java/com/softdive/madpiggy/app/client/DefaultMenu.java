@@ -4,9 +4,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.vaadin.components.gwt.polymer.client.element.PaperItemElement;
-import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
-import com.vaadin.components.gwt.polymer.client.widget.PaperMenuButton;
+import com.softdive.madpiggy.app.client.polymer.element.PaperItemElement;
+import com.softdive.madpiggy.app.client.polymer.element.event.PaperSelectEvent;
+import com.softdive.madpiggy.app.client.polymer.widget.PaperMenuButton;
 
 /**
  * Created by deepakc on 02/06/15.
@@ -23,15 +23,15 @@ public class DefaultMenu extends Composite implements Menu {
     public DefaultMenu() {
         initWidget(ourUiBinder.createAndBindUi(this));
 
-        inviteFriends.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        inviteFriends.addEventListener(PaperSelectEvent.NAME, new PaperSelectEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
+            protected void handleEvent(PaperSelectEvent event) {
 
             }
         });
-        refresh.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        refresh.addEventListener(PaperSelectEvent.NAME, new PaperSelectEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
+            protected void handleEvent(PaperSelectEvent event) {
 
             }
         });

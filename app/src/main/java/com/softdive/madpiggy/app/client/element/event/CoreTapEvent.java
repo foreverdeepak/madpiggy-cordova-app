@@ -2,8 +2,8 @@ package com.softdive.madpiggy.app.client.element.event;
 
 import com.google.gwt.core.client.js.JsProperty;
 import com.google.gwt.core.client.js.JsType;
-import com.vaadin.components.gwt.polymer.client.webapi.element.Event;
-import com.vaadin.components.gwt.polymer.client.webapi.element.EventListener;
+import com.softdive.madpiggy.app.client.polymer.webapi.element.Event;
+import com.softdive.madpiggy.app.client.polymer.webapi.element.EventListener;
 
 @JsType
 public interface CoreTapEvent extends Event {

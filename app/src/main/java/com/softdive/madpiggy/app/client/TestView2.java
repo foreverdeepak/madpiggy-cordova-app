@@ -14,9 +14,9 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
+import com.softdive.madpiggy.app.client.polymer.element.PaperTabsElement;
+import com.softdive.madpiggy.app.client.polymer.element.event.PaperSelectEvent;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
-import com.vaadin.components.gwt.polymer.client.element.PaperTabsElement;
-import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
 
 
 /**
@@ -64,9 +64,9 @@ public class TestView2 extends Composite {
         }.schedule(350);
 
 
-        paperTabsElement.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        paperTabsElement.addEventListener(PaperSelectEvent.NAME, new PaperSelectEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
+            protected void handleEvent(PaperSelectEvent event) {
                 Integer index = Integer.parseInt(paperTabsElement.selected().toString());
                 carousel.setSelectedPage(index.intValue());
             }

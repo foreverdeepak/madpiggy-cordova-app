@@ -1,6 +1,6 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
-             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'
+             xmlns:p='urn:import:com.softdive.madpiggy.app.client.polymer.widget'
              xmlns:m='urn:import:com.softdive.madpiggy.app.client'
              xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
 
@@ -9,12 +9,12 @@
     </ui:style>
 
     <g:HTMLPanel>
-        <core-drawer-panel id="drawerPanel" narrow="true">
+        <paper-drawer-panel id="drawerPanel" narrow="true">
             <m:DrawerHeaderPanel ui:field="drawerHeaderPanel"/>
-            <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
-                <core-toolbar id="mainheader" class="small">
+            <paper-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
+                <paper-toolbar id="mainheader" class="small">
                     <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
-                    <paper-icon-button id="navicon" icon="menu" core-drawer-toggle=""></paper-icon-button>
+                    <paper-icon-button id="navicon" icon="menu" paper-drawer-toggle=""></paper-icon-button>
                     <div flex=""></div>
                     <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
 
@@ -25,7 +25,7 @@
                             <paper-spinner id="refreshspinner"></paper-spinner>
                         </div>
                     </div>
-                </core-toolbar>
+                </paper-toolbar>
                 <div content="">
                    Top<br/>
                     Content<br/>
@@ -69,9 +69,9 @@
 
                    Bottom<br/>
                 </div>
-            </core-scroll-header-panel>
+            </paper-scroll-header-panel>
 
-        </core-drawer-panel>
+        </paper-drawer-panel>
 
         <paper-toast name="toast" duration="10000" swipeDisabled="false"
                      text="Tada">
