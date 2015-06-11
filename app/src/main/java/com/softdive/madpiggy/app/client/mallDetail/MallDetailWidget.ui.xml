@@ -1,0 +1,85 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:mlist="urn:import:com.softdive.madpiggy.app.client.widget.celllist">
+	
+	<ui:with type="com.softdive.madpiggy.app.client.global.GlobalResources" field="global" />
+
+	<ui:style>
+	.card {
+		background-color: white;
+		margin: 4px;
+		padding: 10px;
+		box-shadow: 0 1px 2px #aaa;
+		border-radius: 0.15rem;
+	}
+	
+	.saperator-horizontal {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 2px;
+		background-color: #E2D6D6;
+	}
+	
+	.saperator-horizontal-thin {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 1px;
+		background-color: #E2D6D6;
+	}
+	
+	.saperator-vertical {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		margin-right: 5px;
+		margin-left: 5px;
+		width: 2px;
+		background-color: #E2D6D6;
+	}
+	
+	.round-image {
+		margin: 5px;
+		background-position: 50% 50%;
+	    background-repeat: no-repeat;
+	    border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    width: 10%;
+	    height: 10%;
+	}
+	
+	.review-bg {
+		color: white;
+		background-color: green;
+	}
+	
+	.mrg-btm {
+		margin: 5px;
+
+	}
+	.description {
+		font-size: 0.85em;
+		font-weight: lighter;
+		margin-top: 5px;
+	}
+	</ui:style>
+
+	<g:HTMLPanel>
+		<mgwt:panel.flex.FlexPanel orientation="VERTICAL" ui:field="parentContainer">
+
+			<g:Image ui:field="mallCoverImage" width="100%"/>
+			
+			<g:HTMLPanel>
+				<paper-shadow z="0" class="{style.card}">
+					<mgwt:panel.flex.FlexPanel orientation="VERTICAL">
+						<g:HTMLPanel ui:field="mallName" styleName="title"/>
+						<g:HTMLPanel styleName="{style.saperator-horizontal}" />
+						<g:HTMLPanel ui:field="mallDescription" styleName="{style.description}"/>
+					</mgwt:panel.flex.FlexPanel>
+				</paper-shadow>
+			</g:HTMLPanel>
+			
+		</mgwt:panel.flex.FlexPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>
