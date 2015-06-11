@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.softdive.madpiggy.app.client.element.event.CoreTapEvent;
+import com.softdive.madpiggy.app.client.nearby.NearbyPlace;
 import com.vaadin.components.gwt.polymer.client.element.PaperItemElement;
 import com.vaadin.components.gwt.polymer.client.widget.PaperMenuButton;
 
@@ -33,6 +34,9 @@ public class DefaultMenu extends Composite implements Menu {
         refresh.addEventListener(CoreTapEvent.NAME, new CoreTapEvent.Listener() {
             @Override
             protected void handleEvent(CoreTapEvent event) {
+            	if (App.get().getClientFactory().getPlaceController().getWhere() instanceof NearbyPlace) {
+            		App.getListingDataStore().clearStore();
+            	}
             	App.get().getClientFactory().getEventBus().fireEvent(new PlaceChangeEvent(App.get().getClientFactory().getPlaceController().getWhere()));
             }
         });
