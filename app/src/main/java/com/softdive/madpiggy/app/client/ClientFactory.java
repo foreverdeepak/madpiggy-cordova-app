@@ -5,6 +5,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
 import com.softdive.madpiggy.app.client.api.AdApi;
+import com.softdive.madpiggy.app.client.api.UserApi;
 import com.softdive.madpiggy.app.client.model.User;
 import com.softdive.madpiggy.app.client.model.helper.Latlng;
 
@@ -27,6 +28,10 @@ public interface ClientFactory {
     
     AdApi getAdApi();
     
+    UserApi getUserApi();
+    
 	public Latlng getCurrentLocation();
+
+	void updateUser(User user);
 
 }

@@ -1,11 +1,12 @@
 package com.softdive.madpiggy.app.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.softdive.madpiggy.app.client.element.event.CoreTapEvent;
 import com.vaadin.components.gwt.polymer.client.element.PaperItemElement;
-import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
 import com.vaadin.components.gwt.polymer.client.widget.PaperMenuButton;
 
 /**
@@ -23,16 +24,16 @@ public class DefaultMenu extends Composite implements Menu {
     public DefaultMenu() {
         initWidget(ourUiBinder.createAndBindUi(this));
 
-        inviteFriends.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        inviteFriends.addEventListener(CoreTapEvent.NAME, new CoreTapEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
+            protected void handleEvent(CoreTapEvent event) {
 
             }
         });
-        refresh.addEventListener(CoreSelectEvent.NAME, new CoreSelectEvent.Listener() {
+        refresh.addEventListener(CoreTapEvent.NAME, new CoreTapEvent.Listener() {
             @Override
-            protected void handleEvent(CoreSelectEvent event) {
-
+            protected void handleEvent(CoreTapEvent event) {
+            	App.get().getClientFactory().getEventBus().fireEvent(new PlaceChangeEvent(App.get().getClientFactory().getPlaceController().getWhere()));
             }
         });
 

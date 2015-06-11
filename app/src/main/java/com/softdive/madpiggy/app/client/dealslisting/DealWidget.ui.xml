@@ -57,18 +57,31 @@
 	}	
 	</ui:style>
 	<g:HTMLPanel ui:field="selectable">
-		<paper-shadow z="0" class="{style.card}">
-			<g:Image ui:field="dealImage" styleName="{style.img}"/>
-			<g:Label ui:field="title" styleName="{style.title}"/>
-			<g:Label ui:field="descr" styleName="{style.description}" width="95%"/>
-			<g:Label ui:field="rating" styleName="{style.description}"/>
-			<g:HTMLPanel styleName="{style.saperator-horizontal}" />
-			<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL">
-				<g:Image ui:field="companyImage" styleName="{style.roundImage}"/>
-				<g:Label ui:field="companyName" styleName="{style.description}" width="95%"/>
-			</mgwt:panel.flex.FlexPanel>
-			<g:Image ui:field="exclusiveImage" url="{global.exclusiveImage.getSafeUri.asString}" styleName="{style.exclusive}"/>
-		</paper-shadow>
+		    <core-animated-pages transitions="hero-transition cross-fade" >
+		<section id="page1">
+		<div hero-id="hero" hero="" class="{style.card}">
+			<paper-shadow z="0">
+				<g:Image ui:field="dealImage" styleName="{style.img}" />
+				<g:Label ui:field="title" styleName="{style.title}" />
+				<g:Label ui:field="descr" styleName="{style.description}"
+					width="95%" />
+				<g:Label ui:field="rating" styleName="{style.description}" />
+				<g:HTMLPanel styleName="{style.saperator-horizontal}" />
+				<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL">
+					<g:Image ui:field="companyImage" styleName="{style.roundImage}" />
+					<g:Label ui:field="companyName" styleName="{style.description}" width="95%" />
+				</mgwt:panel.flex.FlexPanel>
+				<g:Image ui:field="exclusiveImage" url="{global.exclusiveImage.getSafeUri.asString}" styleName="{style.exclusive}" />
+			</paper-shadow>
+			</div>
+		</section>
+			
+		<section id="page2">
+			<div ui:field="secondAnimPage" hero-id="hero" hero="">
+				<g:HTMLPanel ui:field="dealDetailContainer" />
+			</div>
+		</section>
+		</core-animated-pages>
 		<div ui:field="dummy"></div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

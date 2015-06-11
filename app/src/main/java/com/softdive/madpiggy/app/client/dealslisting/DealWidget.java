@@ -10,7 +10,10 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.softdive.madpiggy.app.client.detail.DetailPagerViewImpl;
+import com.softdive.madpiggy.app.client.detail.ItemData;
 import com.softdive.madpiggy.app.client.global.AppConstant;
+import com.softdive.madpiggy.app.client.jsinterop.Native;
 import com.softdive.madpiggy.app.client.model.Advertisement;
 import com.softdive.madpiggy.app.client.model.Image.ImageType;
 import com.softdive.madpiggy.app.client.model.helper.ImageHelper;
@@ -24,7 +27,7 @@ public class DealWidget extends CellWidget<Advertisement> {
 
 	interface DealWidgetUiBinder extends UiBinder<Widget, DealWidget> {
 	}
-
+	String animId = "";
 	@UiField Label title;
 	@UiField Label descr;
 	@UiField Label companyName;
@@ -33,14 +36,15 @@ public class DealWidget extends CellWidget<Advertisement> {
 	@UiField Image companyImage;
 	@UiField DivElement dummy;
 	@UiField Image exclusiveImage;
-	
+	//@UiField CoreAnimatedPages pages;
 	private double width;
 	private double originalImageHeight;
 	private double originalImageWidth;
 	private Advertisement model;
 	private static final int CONTENT_HEIGHT = 95;
-	
+	@UiField DivElement secondAnimPage;
 	@UiField HTMLPanel selectable;
+	@UiField HTMLPanel dealDetailContainer;
 	
 	public DealWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -57,6 +61,8 @@ public class DealWidget extends CellWidget<Advertisement> {
 	@Override
 	public void render(Advertisement model) {
 		this.model = model;
+		animId = "anim-"+model.getId();
+		selectable.getElement().getElementsByTagName("core-animated-pages").getItem(0).setAttribute("id", animId);
 		
 		com.softdive.madpiggy.app.client.model.Image dealImg = ImageHelper.getCoverImage(model, ImageType.THUMB);
 		originalImageHeight = dealImg.getHeight();
@@ -96,5 +102,29 @@ public class DealWidget extends CellWidget<Advertisement> {
 	
 	private int getCalulatedCoverImageHeight() {
 		return (int) (originalImageHeight / (originalImageWidth / width));
+	}
+
+	public void endAnimation() {
+		endAnimationInternal(animId);
+	}
+
+	public void startAnimation(ItemData itemData) {
+		dealDetailContainer.clear();
+		dealDetailContainer.add(new DetailPagerViewImpl(itemData));
+		setTopAnLeft(0, 0);
+		startAnimationInternal(animId);
+	}
+	private native void startAnimationInternal(String animId) /*-{
+		$wnd.document.getElementById(animId).selected = 1;
+	}-*/;
+
+	private native void endAnimationInternal(String animId) /*-{
+		$wnd.document.getElementById(animId).selected = 0
+	}-*/;
+
+	public void setTopAnLeft(int top, int left) {
+		secondAnimPage.getStyle().setTop(0, Unit.PX);
+		secondAnimPage.getStyle().setLeft(0, Unit.PX);
+		secondAnimPage.getStyle().setHeight(Native.getWindowHeight(), Unit.PX);
 	}
 }
