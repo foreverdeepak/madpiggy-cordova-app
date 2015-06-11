@@ -29,7 +29,7 @@ public class DetailPagerViewImpl extends Composite implements DetailViewPager, V
         carousel.setShowCarouselIndicator(false);
         carousel.setAdapter(this);
         for (long id : itemData.getItemIds()) {
-         		
+        		carousel.getElement().appendChild(new HTMLPanel("dsdsd"+id).getElement());
         }	
         carousel.getElement().getStyle().setVisibility(Style.Visibility.HIDDEN);
 
@@ -71,7 +71,6 @@ public class DetailPagerViewImpl extends Composite implements DetailViewPager, V
 
 	@Override
 	public void onItemSelected(int index) {
-		Window.alert(index+"");
 		
 	}
 }

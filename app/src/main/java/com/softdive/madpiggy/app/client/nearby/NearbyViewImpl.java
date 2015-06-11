@@ -1,6 +1,7 @@
 package com.softdive.madpiggy.app.client.nearby;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -13,6 +14,7 @@ import com.softdive.madpiggy.app.client.widget.Spinner;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAdapter;
 import com.vaadin.components.gwt.polymer.client.element.event.CoreSelectEvent;
+import com.vaadin.components.gwt.polymer.client.widget.CoreAnimatedPages;
 import com.vaadin.components.gwt.polymer.client.widget.PaperTab;
 import com.vaadin.components.gwt.polymer.client.widget.PaperTabs;
 
@@ -30,7 +32,6 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 
     @UiField DrawerHeaderPanel drawerHeaderPanel;
     @UiField FlexPanel flexPanel;
-    
     @UiField PaperTabs paperTabs;
     
     private ViewPager viewPager;
@@ -74,7 +75,8 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 	public void onItemSelected(int index) {
 		paperTabs.getPolymerElement().selected(index + "");
 	}
-
+	
+	
 	@Override
 	public void setTabs(Tab[] tabs) {
 		this.tabs = tabs;
