@@ -1,14 +1,16 @@
 package com.softdive.madpiggy.app.client.nearby;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
 import com.softdive.madpiggy.app.client.DrawerHeaderPanel;
+import com.softdive.madpiggy.app.client.jsinterop.Native;
 import com.softdive.madpiggy.app.client.tab.Tab;
 import com.softdive.madpiggy.app.client.widget.Spinner;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
@@ -29,23 +31,22 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
     private static NearbyViewImplUiBinder ourUiBinder = GWT.create(NearbyViewImplUiBinder.class);
 
 	private Presenter presenter;
-
     @UiField DrawerHeaderPanel drawerHeaderPanel;
     @UiField FlexPanel flexPanel;
     @UiField PaperTabs paperTabs;
-    
+    @UiField CoreAnimatedPages animatedPages;
+    @UiField FlowPanel detailView;
     private ViewPager viewPager;
     private Tab[] tabs;
     private Widget spinner = new Spinner();
     
     public NearbyViewImpl() {
-    	
         initWidget(ourUiBinder.createAndBindUi(this));
-        
+        animatedPages.setHeight(Native.getWindowHeight()+String.valueOf(Unit.PX));
+        animatedPages.setWidth(Native.getWindowWidth()+String.valueOf(Unit.PX));
         viewPager = new ViewPager();
         viewPager.setShowCarouselIndicator(false);
         flexPanel.add(spinner);
-
     }
 
     @Override
@@ -76,6 +77,13 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
 		paperTabs.getPolymerElement().selected(index + "");
 	}
 	
+	public void clearDetailView() {
+		detailView.getElement().removeAllChildren();
+	}
+
+	public void setDetailView(Widget widget) {
+		detailView.getElement().appendChild(widget.getElement());
+	}
 	
 	@Override
 	public void setTabs(Tab[] tabs) {
@@ -92,5 +100,20 @@ public class NearbyViewImpl extends Composite implements NearbyView, ViewPagerAd
                 viewPager.setSelectedPage(index.intValue());
             }
         });
+	}
+	
+	@Override
+	public FlowPanel getDetailView() {
+		return detailView;
+	}
+	
+	@Override
+	public void togglePage() {
+		String selected =  animatedPages.getPolymerElement().selected().toString();
+		if(selected == "0") {
+			animatedPages.getPolymerElement().selected("1");
+		} else {
+			animatedPages.getPolymerElement().selected("0");
+		}
 	}
 }

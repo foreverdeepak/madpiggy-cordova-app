@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+	<ui:with type="com.softdive.madpiggy.app.client.global.GlobalResources"
+		field="global" />
+
+	<ui:style>
+	.card {
+		box-shadow: 0 1px 2px #aaa;
+		background: white;
+		border-radius: 0.2em;
+		margin: 4px;
+		padding: 10px;
+	}
+	
+	.round-image {
+		margin: 5px;
+		width: 30px;
+		height: 30px;
+	}
+	</ui:style>
+
+	<mgwt:panel.flex.FlexPanel orientation="VERTICAL">
+		<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL">
+
+			<mgwt:panel.flex.FlexPanel width="40px">
+				<g:Image ui:field="reviewUserImage" addStyleNames="{style.round-image}" />
+			</mgwt:panel.flex.FlexPanel>
+
+			<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL" width="1%" />
+
+			<mgwt:panel.flex.FlexPanel orientation="HORIZONTAL"
+				width="80%">
+				<mgwt:panel.flex.FlexPanel orientation="VERTICAL">
+					<g:HTMLPanel ui:field="reviewerName" />
+					<g:HTMLPanel ui:field="reviewText" />
+				</mgwt:panel.flex.FlexPanel>
+			</mgwt:panel.flex.FlexPanel>
+
+		</mgwt:panel.flex.FlexPanel>
+	</mgwt:panel.flex.FlexPanel>
+</ui:UiBinder>

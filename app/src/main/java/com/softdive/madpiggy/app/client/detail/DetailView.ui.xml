@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+  <g:HTMLPanel>
+	<core-scroll-header-panel ui:field="scrollheader"
+		main="" condenses="false" keepCondensedHeader="" fixed="false">
+		<core-toolbar id="mainheader" class="medium-tall">
+			<paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
+			<div flex=""></div>
+			<paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
+			<div class="bottom fit" horizontal="" layout="">
+			</div>
+		</core-toolbar>
+		<mgwt:panel.flex.FlexPanel orientation="VERTICAL"
+			ui:field="parentContainer" height="100%" width="100%" />
+	</core-scroll-header-panel>
+	</g:HTMLPanel>
+</ui:UiBinder>

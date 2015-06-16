@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.detail;
+package com.softdive.madpiggy.app.client.detail.deal;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;

@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.detail;
+package com.softdive.madpiggy.app.client.detail.deal;
 
 import com.ait.toolkit.gmaps.client.GMapWidget;
 import com.ait.toolkit.gmaps.client.base.LatLng;

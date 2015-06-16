@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.detail;
+package com.softdive.madpiggy.app.client.detail.deal;
 
 
 public interface DetailViewPager {

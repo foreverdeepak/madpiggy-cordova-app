@@ -1,0 +1,20 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:p='urn:import:com.vaadin.components.gwt.polymer.client.widget'
+             xmlns:m='urn:import:com.softdive.madpiggy.app.client'
+             xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+
+    <ui:style>
+        .abc {
+            padding-top: 128px;
+            position: relative;
+        }
+
+    </ui:style>
+
+    <g:HTMLPanel>
+            <div content="">
+                <mgwt:panel.flex.RootFlexPanel ui:field="flexPanel" addStyleNames="{style.abc}"/>
+            </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

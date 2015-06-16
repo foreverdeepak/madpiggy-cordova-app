@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.detail;
+package com.softdive.madpiggy.app.client.detail.deal;
 
 import java.util.ArrayList;
 import java.util.Arrays;

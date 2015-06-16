@@ -13,12 +13,14 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.BaseActivity;
 import com.softdive.madpiggy.app.client.ClientFactory;
+import com.softdive.madpiggy.app.client.detail.ItemData;
+import com.softdive.madpiggy.app.client.detail.deal.DealDetailPresenter;
 import com.softdive.madpiggy.app.client.model.helper.AdCriteria;
 import com.softdive.madpiggy.app.client.model.helper.DealWrapper;
 import com.softdive.madpiggy.app.client.model.helper.GeoCriteria;
 import com.softdive.madpiggy.app.client.model.helper.Latlng;
 import com.softdive.madpiggy.app.client.tab.Tab;
-import com.softdive.madpiggy.app.client.widget.Spinner;
+import com.softdive.madpiggy.app.client.tab.Tab.TabType;
 
 /**
  * Created by deepakc on 02/06/15.
@@ -34,7 +36,7 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
     public NearbyActivity(ClientFactory clientFactory) {
         super(clientFactory);
         nearbyView = new NearbyViewImpl();
-		dealsPresenter = new DealsPresenterImpl(clientFactory);
+		dealsPresenter = new DealsPresenterImpl(clientFactory, this);
 		mallsPresenter = new MallsPresenterImpl(clientFactory);
 		outletsPresenter = new OutletsPresenterImpl(clientFactory);
     }
@@ -124,4 +126,31 @@ public class NearbyActivity extends BaseActivity implements NearbyView.Presenter
 		mallsPresenter.onStop();
 		dealsPresenter.onStop();
 	}
+
+	@Override
+	public void showDetailView(TabType tabType, ItemData data) {
+		switch (tabType) {
+		case DEALS:
+		case CATEGORY:
+			nearbyView.togglePage();
+			DealDetailPresenter dealDetailPresenter = new DealDetailPresenter(clientFactory, data);
+			dealDetailPresenter.start(nearbyView.getDetailView());
+			break;
+		case OUTLETS:
+			break;
+		case MALLS:
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void hideDetailView() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
 }

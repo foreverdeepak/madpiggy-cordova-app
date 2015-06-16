@@ -13,36 +13,39 @@
     </ui:style>
 
     <g:HTMLPanel>
-        <core-drawer-panel id="drawerPanel" narrow="true" responsiveWidth="6400px">
-            <m:DrawerHeaderPanel ui:field="drawerHeaderPanel" />
-            <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
-                <core-toolbar id="mainheader" class="medium-tall">
-                    <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
-                    <paper-icon-button id="navicon" icon="menu" core-drawer-toggle=""></paper-icon-button>
-                    <div flex=""></div>
-                    <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
-
-                    <m:DefaultMenu/>
-
-                    <div id="refresh" class="bottom fit" layout="" horizontal="" center-center="">
-                        <div class="paper-shadow-bottom-z-1">
-                            <paper-spinner id="refreshspinner"></paper-spinner>
-                        </div>
-                    </div>
-
-                    <div class="bottom fit" horizontal="" layout="">
-						
-						<p:PaperTabs selected="0" flex="0" scrollable="true" hideScrollButton="true" ui:field="paperTabs"/>
-                        
-                    </div>
-
-                </core-toolbar>
-                <div content="">
-                    <mgwt:panel.flex.RootFlexPanel ui:field="flexPanel" addStyleNames="{style.abc}"/>
-                </div>
-            </core-scroll-header-panel>
-
-        </core-drawer-panel>
+    	<p:CoreAnimatedPages ui:field="animatedPages" selected="0" transitions="cross-fade-all hero-transition">
+      		<section vertical="" layout="" ui:field="listView">
+      		    <core-drawer-panel id="drawerPanel" narrow="true" responsiveWidth="6400px">
+		            <m:DrawerHeaderPanel ui:field="drawerHeaderPanel" />
+		            <core-scroll-header-panel id="scrollheader" main="" condenses="false" keepCondensedHeader="" fixed="false">
+		                <core-toolbar id="mainheader" class="medium-tall">
+		                    <paper-icon-button icon="arrow-back" class="selected-item"></paper-icon-button>
+		                    <paper-icon-button id="navicon" icon="menu" core-drawer-toggle=""></paper-icon-button>
+		                    <div flex=""></div>
+		                    <paper-icon-button icon="search" class="fade-on-drawer-open"></paper-icon-button>
+		                    <m:DefaultMenu/>
+		
+		                    <div id="refresh" class="bottom fit" layout="" horizontal="" center-center="">
+		                        <div class="paper-shadow-bottom-z-1">
+		                            <paper-spinner id="refreshspinner"></paper-spinner>
+		                        </div>
+		                    </div>
+		
+		                    <div class="bottom fit" horizontal="" layout="">
+								
+								<p:PaperTabs selected="0" flex="0" scrollable="true" hideScrollButton="true" ui:field="paperTabs"/>
+		                    </div>
+		                </core-toolbar>
+		                <div content="">
+		                    <mgwt:panel.flex.RootFlexPanel ui:field="flexPanel" addStyleNames="{style.abc}"/>
+		                </div>
+		            </core-scroll-header-panel>
+		        </core-drawer-panel>
+      		</section>
+      		<section vertical="" layout="" hero-id="hero" hero="" >
+      		    <g:FlowPanel ui:field="detailView"/>
+      		</section>
+      	</p:CoreAnimatedPages>
 
         <paper-toast name="toast" duration="10000" swipeDisabled="false"
                      text="Tada">

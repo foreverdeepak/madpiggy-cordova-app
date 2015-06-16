@@ -3,20 +3,15 @@ package com.softdive.madpiggy.app.client.nearby;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.softdive.madpiggy.app.client.App;
 import com.softdive.madpiggy.app.client.ClientFactory;
 import com.softdive.madpiggy.app.client.dealslisting.DealListView;
 import com.softdive.madpiggy.app.client.dealslisting.DealListViewImpl;
-import com.softdive.madpiggy.app.client.dealslisting.DealWidget;
-import com.softdive.madpiggy.app.client.detail.AbstractDetailPresenter;
-import com.softdive.madpiggy.app.client.detail.DealDetailPresenter;
 import com.softdive.madpiggy.app.client.detail.ItemData;
 import com.softdive.madpiggy.app.client.model.Advertisement;
-import com.softdive.madpiggy.app.client.model.Mall;
-import com.softdive.madpiggy.app.client.model.helper.MallWrapper;
 import com.softdive.madpiggy.app.client.tab.Tab;
+import com.softdive.madpiggy.app.client.tab.Tab.TabType;
 import com.softdive.madpiggy.app.client.widget.NotFound;
 import com.softdive.madpiggy.app.client.widget.celllist.CellSelectedEvent;
 import com.softdive.madpiggy.app.client.widget.celllist.CellSelectedHandler;
@@ -30,8 +25,12 @@ public class DealsPresenterImpl implements NearbyView.DealsPresenter,
 	private ClientFactory clientFactory;
 	private DealListView dealListView;
 	private long[] ids;
-	public DealsPresenterImpl(ClientFactory clientFactory) {
+	
+	private NearbyView.Presenter nearbyPresenter;
+	
+	public DealsPresenterImpl(ClientFactory clientFactory, NearbyView.Presenter presenter) {
 		this.clientFactory = clientFactory;
+		this.nearbyPresenter = presenter;
 	}
 
     @Override
@@ -72,15 +71,7 @@ public class DealsPresenterImpl implements NearbyView.DealsPresenter,
 		ItemData itemData =  new ItemData();
 		itemData.setSelected(((Advertisement) event.getItem()).getId());
 		itemData.initialize(ids);
-    	AbstractDetailPresenter abstractDetailPresenter =  new DealDetailPresenter(clientFactory, itemData);
-    	final DealWidget dealWidget = (DealWidget) event.getWidget();
-    	if (event.hasTouchElement("backButton")) {
-			//Window.scrollTo(0, scrollTop);
-			dealWidget.endAnimation();
-		} else {
-			dealWidget.startAnimation(itemData);
-		}
-    	
+		nearbyPresenter.showDetailView(TabType.DEALS, itemData);
     }
 
 	@Override

@@ -1,4 +1,4 @@
-package com.softdive.madpiggy.app.client.detail;
+package com.softdive.madpiggy.app.client.detail.deal;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.ui.client.widget.panel.flex.FlexPanel;
 import com.softdive.madpiggy.app.client.App;
+import com.softdive.madpiggy.app.client.detail.ItemData;
 import com.softdive.madpiggy.app.client.storage.ListingDataStore;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPager;
 import com.softdive.madpiggy.app.client.widget.viewpager.ViewPagerAdapter;
